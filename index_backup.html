@@ -160,8 +160,7 @@
                 Transformando dados em <br/><span class="text-secondary">Inteligência Estratégica.</span>
             </h1>
             <p class="text-muted text-lg md:text-xl max-w-2xl leading-relaxed font-light mb-10">
-                Traduzo dados complexos em insights estratégicos, eliminando o ruído técnico para entregar clareza a quem decide. 
-            </p>
+                 
             <div class="flex flex-wrap gap-4">
                 <a href="#projetos" class="bg-secondary text-[#111413] px-8 py-4 font-bold tracking-tight rounded-lg hover:brightness-110 transition-all text-center">Explorar Projetos</a>
                 <a href="#contato" class="border border-border bg-transparent text-foreground px-8 py-4 font-bold tracking-tight rounded-lg hover:bg-surface-elevated transition-all text-center">Vamos Conversar?</a>
@@ -209,6 +208,7 @@
     </section>
 
     <!-- Projetos (Horizontal Scroll) -->
+    <!-- EDITÁVEL: Adicione ou remova blocos dentro de "Projetos Container" -->
     <section id="projetos" class="py-24 bg-background">
         <div class="px-6 md:px-12 lg:px-24 mb-16">
             <h2 class="font-headline text-5xl font-light text-foreground">Projetos</h2>
@@ -216,36 +216,43 @@
         </div>
 
         <!-- Projetos Container -->
+        <!-- O CSS define min-w-[45vw] no mobile (2 cards na tela) e min-w-[30%] no desktop (3 cards) -->
         <div class="flex gap-6 overflow-x-auto pb-8 px-6 md:px-12 lg:px-24 hide-scrollbar snap-x snap-mandatory">
             
-            <!-- Projeto 1 (RH) -->
-            <div class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
+            <!-- Projeto 1 -->
+            <a href="https://github.com/isaiassousa032/Analise-de-Dados-Censo-2022" target="_blank" class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
+                <!--
+                <div class="h-48 overflow-hidden bg-surface-elevated relative flex items-center justify-center">
+                     Placeholder color/icon se não houver imagem do projeto 
+                    <span class="material-symbols-outlined text-6xl text-primary opacity-50 group-hover:scale-110 transition-transform duration-500">public</span>
+                </div>
+                -->
                 <div class="h-48 overflow-hidden relative">
-                    <img src="imagem_projeto_rh.png" alt="Imagem do Projeto RH" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?fit=crop&w=800&q=80';"/>
+                    <img src="imagem_projeto_censo.png" alt="Imagem do Projeto Censo 2022" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?fit=crop&w=800&q=80';"/>
                 </div>
                 <div class="p-8 flex-1 flex flex-col justify-between">
                     <div>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">Análise de Dados</span>
                         </div>
-                        <h3 class="font-headline text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors line-clamp-2">Projeto RH</h3>
+                        <h3 class="font-headline text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors line-clamp-2">Análise de Dados do Censo 2022</h3>
                     </div>
-                    <div class="mt-4 flex flex-col gap-3">
-                        <button id="open-dashboard-btn" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary transition-colors cursor-pointer w-fit">
-                            Ver Dashboard <span class="material-symbols-outlined text-sm">bar_chart</span>
-                        </button>
-                        <a href="https://github.com/isaiassousa032/projeto-rh" target="_blank" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary transition-colors cursor-pointer w-fit">
-                            Ver no GitHub <span class="material-symbols-outlined text-sm">arrow_outward</span>
-                        </a>
+                    <div class="flex items-center gap-2 mt-4 text-sm text-secondary font-bold">
+                        Ver no GitHub <span class="material-symbols-outlined text-sm">arrow_outward</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <!-- Projeto 2 (TikTok) -->
-            <div class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
+            <!-- Projeto 2 -->
+            <a href="https://github.com/isaiassousa032/projeto-tiktok" target="_blank" class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
                 <div class="h-48 overflow-hidden relative">
                     <img src="imagem_projeto_tiktok.png" alt="Imagem do Projeto TikTok" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?fit=crop&w=800&q=80';"/>
                 </div>
+                <!--
+                <div class="h-48 overflow-hidden bg-surface-elevated relative flex items-center justify-center">
+                    <span class="material-symbols-outlined text-6xl text-primary opacity-50 group-hover:scale-110 transition-transform duration-500">play_circle</span>
+                </div>
+                -->
                 <div class="p-8 flex-1 flex flex-col justify-between">
                     <div>
                         <div class="flex flex-wrap gap-2 mb-4">
@@ -253,18 +260,22 @@
                         </div>
                         <h3 class="font-headline text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors line-clamp-2">Projeto TikTok</h3>
                     </div>
-                    <div class="mt-4 flex flex-col gap-3">
-                        <a href="https://github.com/isaiassousa032/projeto-tiktok" target="_blank" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary transition-colors cursor-pointer w-fit">
-                            Ver no GitHub <span class="material-symbols-outlined text-sm">arrow_outward</span>
-                        </a>
+                    <div class="flex items-center gap-2 mt-4 text-sm text-secondary font-bold">
+                        Ver no GitHub <span class="material-symbols-outlined text-sm">arrow_outward</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <!-- Projeto 3 (Hábitos Digitais) -->
-            <div class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
+                        <!-- Projeto 3 -->
+            <a href="https://github.com/isaiassousa032/habitos-digitais-e-vicio-em-smarphones-dados_sinteticos" target="_blank" class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
+                <!--
+                <div class="h-48 overflow-hidden bg-surface-elevated relative flex items-center justify-center">
+                     Placeholder color/icon se não houver imagem do projeto 
+                    <span class="material-symbols-outlined text-6xl text-primary opacity-50 group-hover:scale-110 transition-transform duration-500">public</span>
+                </div>
+                -->
                 <div class="h-48 overflow-hidden relative">
-                    <img src="imagem_projeto_habitos.png" alt="Imagem do Projeto Hábitos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?fit=crop&w=800&q=80';"/>
+                    <img src="imagem_projeto_habitos.png" alt="Imagem do Projeto TikTok" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?fit=crop&w=800&q=80';"/>
                 </div>
                 <div class="p-8 flex-1 flex flex-col justify-between">
                     <div>
@@ -273,14 +284,17 @@
                         </div>
                         <h3 class="font-headline text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors line-clamp-2">Hábitos Digitais e Vício em Smarphones</h3>
                     </div>
-                    <div class="mt-4 flex flex-col gap-3">
-                        <a href="https://github.com/isaiassousa032/habitos-digitais-e-vicio-em-smarphones-dados_sinteticos" target="_blank" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary transition-colors cursor-pointer w-fit">
-                            Ver no GitHub <span class="material-symbols-outlined text-sm">arrow_outward</span>
-                        </a>
+                    <div class="flex items-center gap-2 mt-4 text-sm text-secondary font-bold">
+                        Ver no GitHub <span class="material-symbols-outlined text-sm">arrow_outward</span>
                     </div>
                 </div>
+            </a>
+            <!-- Projeto 3 (Placeholder para adicionar mais futuramente) 
+            <div class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface/50 border border-dashed border-border rounded-xl flex items-center justify-center h-[400px] flex-col gap-4">
+                <span class="material-symbols-outlined text-4xl text-muted">science</span>
+                <span class="text-sm text-muted uppercase tracking-widest font-bold">Em Desenvolvimento</span>
             </div>
-
+            -->
         </div>
     </section>
 
@@ -307,6 +321,7 @@
                     Idiomas
                 </h2>
                 <div class="flex flex-col gap-4">
+                    <!-- Edite os níveis de idioma conforme necessário -->
                     <div class="p-6 bg-surface-elevated rounded-xl border border-border flex justify-between items-center">
                         <span class="font-bold text-foreground">Português</span>
                         <span class="text-xs uppercase tracking-widest text-secondary border border-secondary/30 px-3 py-1 rounded-full">Nativo</span>
@@ -320,7 +335,8 @@
         </div>
     </section>
 
-    <!-- Certificações -->
+    <!-- Certificações (Horizontal Scroll) -->
+    <!-- EDITÁVEL: Adicione ou remova certificações -->
     <section id="certificacoes" class="py-24 bg-background">
         <div class="px-6 md:px-12 lg:px-24 mb-16">
             <h2 class="font-headline text-5xl font-light text-foreground">Certificações</h2>
@@ -328,6 +344,7 @@
         </div>
 
         <div class="flex overflow-x-auto gap-6 px-6 md:px-12 lg:px-24 hide-scrollbar snap-x snap-mandatory pb-8">
+            
             <!-- Certificação 1 -->
             <a href="https://www.credly.com/badges/0960ba07-7786-4c59-86d5-3c263af78ee6/" target="_blank" class="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start p-8 bg-surface rounded-xl border-t-4 border-primary border-x border-b border-border shadow-sm hover:-translate-y-2 transition-transform group">
                 <span class="material-symbols-outlined text-4xl text-secondary mb-6 block" style="font-variation-settings: 'FILL' 1;">verified</span>
@@ -350,12 +367,15 @@
                 <h3 class="font-headline text-lg font-bold text-foreground mb-2">Google Advanced Data Analytics</h3>
                 <p class="text-xs text-muted uppercase tracking-widest">Em Andamento</p>
             </div>
+
         </div>
     </section>
 
     <!-- Bento Grid Section (Cursos & Livros) -->
+    <!-- EDITÁVEL: Adicione os livros e cursos nas listas abaixo -->
     <section class="py-24 px-6 md:px-12 lg:px-24 bg-surface">
         <div class="grid lg:grid-cols-3 gap-8">
+            
             <!-- Cursos -->
             <div id="cursos" class="lg:row-span-2 bg-surface-elevated rounded-2xl p-8 lg:p-10 border border-border">
                 <h2 class="font-headline text-3xl font-light text-foreground mb-8 flex items-center gap-3">
@@ -373,11 +393,6 @@
                         <h4 class="font-headline font-bold text-foreground">Fundamentos de IA</h4>
                         <p class="text-sm text-muted">Inteligência Artificial e Aplicações</p>
                     </div>
-                    <div class="pb-4">
-                        <span class="text-xs text-secondary font-mono mb-1 block">Databricks</span>
-                        <h4 class="font-headline font-bold text-foreground">Databricks Fundamentals</h4>
-                        <p class="text-sm text-muted">Big Data, Data Lakehouse e Cloud</p>
-                    </div>
                 </div>
             </div>
 
@@ -392,6 +407,7 @@
                     <h3 class="text-sm uppercase tracking-widest text-muted font-bold">Lidos</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <!-- Livro -->
                     <div class="group cursor-default">
                         <div class="h-32 bg-surface-elevated mb-4 rounded-xl shadow-md border border-border flex items-center justify-center p-4">
                             <span class="text-xs font-bold text-center text-primary uppercase">Python para análise de dados</span>
@@ -403,12 +419,14 @@
                     <h3 class="text-sm uppercase tracking-widest text-secondary font-bold">Lendo Atualmente</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Livro -->
                     <div class="group cursor-default">
                         <div class="h-32 bg-surface mb-4 rounded-xl shadow-md border border-border flex items-center justify-center p-4 border-l-2 border-l-secondary relative overflow-hidden">
                             <div class="absolute inset-0 bg-secondary/5"></div>
                             <span class="text-xs font-bold text-center text-foreground uppercase relative z-10">SQL Guia Prático</span>
                         </div>
                     </div>
+                    <!-- Livro -->
                     <div class="group cursor-default">
                         <div class="h-32 bg-surface mb-4 rounded-xl shadow-md border border-border flex items-center justify-center p-4 border-l-2 border-l-secondary relative overflow-hidden">
                             <div class="absolute inset-0 bg-secondary/5"></div>
@@ -434,6 +452,7 @@
     <!-- Footer -->
     <footer class="w-full py-16 border-t border-border bg-background">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center space-y-8">
+           <!-- <h3 class="font-headline text-xl font-bold text-foreground">Isaias Santos</h3> -->
             <div class="flex flex-wrap justify-center gap-6 md:gap-12">
                 <a href="https://www.linkedin.com/in/isaiassousadossantos/" target="_blank" class="text-muted hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest flex items-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">work</span> LinkedIn
@@ -447,6 +466,7 @@
                 <a href="https://isaiassantos.works" target="_blank" class="text-muted hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest flex items-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">language</span> Site
                 </a>
+                <!-- Link de Download do Currículo (Footer) -->
                 <a href="curriculo_isaias_santos.pdf" download target="_blank" class="text-muted hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest flex items-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">download</span> Currículo
                 </a>
@@ -457,62 +477,8 @@
         </div>
     </footer>
 
-    <!-- Power BI Modal (Escondido por padrão) -->
-    <div id="powerbi-modal" class="fixed inset-0 z-[70] hidden flex items-center justify-center p-4 md:p-8 bg-background/90 backdrop-blur-sm transition-opacity">
-        <div class="relative w-full max-w-6xl h-[85vh] bg-surface rounded-2xl border border-border shadow-2xl flex flex-col overflow-hidden">
-            <!-- Cabeçalho do Modal -->
-            <div class="flex justify-between items-center p-4 border-b border-border bg-surface-elevated">
-                <h3 class="font-headline font-bold text-foreground flex items-center gap-2">
-                    <span class="material-symbols-outlined text-secondary">bar_chart</span>
-                    Dashboard RH
-                </h3>
-                <button id="close-modal-btn" class="text-muted hover:text-secondary transition-colors">
-                    <span class="material-symbols-outlined text-3xl">close</span>
-                </button>
-            </div>
-            <!-- Container do Iframe -->
-            <div class="flex-1 w-full h-full bg-[#e2e2e2]">
-                <iframe 
-                    title="Dashboard_RH" 
-                    class="w-full h-full"
-                    src="https://app.powerbi.com/view?r=eyJrIjoiZjkxYTI4MDctMjE1MC00YzA0LThiOTctYmFkMjM2YWI0YTQ3IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9&pageName=2a9bd14308e7f3acace9" 
-                    frameborder="0" 
-                    allowFullScreen="true">
-                </iframe>
-            </div>
-        </div>
-    </div>
-
     <!-- Interactive Scripts -->
     <script>
-        // Lógica do Modal Power BI
-        const modal = document.getElementById('powerbi-modal');
-        const openBtn = document.getElementById('open-dashboard-btn');
-        const closeBtn = document.getElementById('close-modal-btn');
-
-        if(openBtn && modal && closeBtn) {
-            // Abrir modal
-            openBtn.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Impede rolagem do site no fundo
-            });
-
-            // Fechar modal clicando no botão X
-            closeBtn.addEventListener('click', () => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = ''; // Retorna a rolagem
-            });
-
-            // Fechar modal clicando fora da caixa do dashboard
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-
         // Dark/Light Theme Toggle
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
