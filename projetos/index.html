@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projetos | Isaias Santos</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon_com_fundo_removido.png" type="image/png" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- Material Symbols (Icons) -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@300,0,0,24" rel="stylesheet" />
+
+    <!-- Tailwind Config & CSS Variables for Dark/Light Theme -->
+    <style>
+        :root {
+            /* Light Mode Variables */
+            --bg-color: #f8f9f8;
+            --surface: #ffffff;
+            --surface-elevated: #eceeec;
+            --text-main: #003b36;
+            --text-muted: #404847;
+            --primary: #003b36;
+            --secondary: #b8860b; 
+            --border: #bfc9c7;
+        }
+
+        .dark {
+            /* Dark Mode Variables */
+            --bg-color: #0a0f0d;
+            --surface: #111514;
+            --surface-elevated: #1a201e;
+            --text-main: #e2e3e1;
+            --text-muted: #9b9c9c;
+            --primary: #9ed0c9;
+            --secondary: #e9c349;
+            --border: #2a3230;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        html { scroll-behavior: smooth; }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: "var(--bg-color)",
+                        surface: "var(--surface)",
+                        elevated: "var(--surface-elevated)",
+                        foreground: "var(--text-main)",
+                        muted: "var(--text-muted)",
+                        primary: "var(--primary)",
+                        secondary: "var(--secondary)",
+                        border: "var(--border)",
+                    },
+                    fontFamily: {
+                        headline: ["Manrope", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-foreground font-body transition-colors duration-300 selection:bg-secondary selection:text-[#111413] overflow-x-hidden">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-5 bg-background/80 backdrop-blur-md border-b border-border transition-colors duration-300">
+        <a href="../index.html" class="flex items-center gap-2 text-xl font-extrabold text-foreground tracking-widest font-headline uppercase hover:text-secondary transition-colors">
+            <span class="material-symbols-outlined text-2xl">arrow_back</span>
+            Isaias<span class="text-secondary"> Santos</span>
+        </a>
+        
+        <div class="flex items-center gap-6">
+            <button id="theme-toggle" class="text-foreground hover:text-secondary transition-colors" title="Alternar Modo Escuro/Claro">
+                <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
+            </button>
+            <a href="../index.html" class="hidden md:block text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Voltar ao Início</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 px-6 md:px-12 lg:px-24 bg-surface border-b border-border">
+        <div class="max-w-4xl">
+            <span class="inline-block px-4 py-1.5 bg-surface-elevated text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 rounded-full border border-border">
+                Galeria
+            </span>
+            <h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tighter text-foreground leading-[1.1] mb-6">
+                Meus Projetos
+            </h1>
+        
+        </div>
+    </section>
+
+    <!-- Lista de Projetos Detailhados -->
+    <div class="px-6 md:px-12 lg:px-24 py-16 space-y-24 bg-background">
+        
+        <!-- Projeto 1: RH (Com Dashboard) -->
+        <div class="flex flex-col xl:flex-row gap-8 xl:gap-12 bg-surface rounded-2xl border border-border p-6 md:p-10 shadow-lg">
+            <!-- Informações (Lado Esquerdo) -->
+            <div class="xl:w-1/3 flex flex-col justify-between">
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Recursos Humanos</span>
+                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Power BI</span>
+                    </div>
+                    <h2 class="font-headline text-3xl font-bold text-foreground mb-4">Projeto Análise de RH</h2>
+                    <p class="text-muted leading-relaxed mb-6">
+                        Neste projeto, desenvolvi um dashboard interativo para análise de métricas de Recursos Humanos. O objetivo foi identificar padrões de rotatividade, perfil demográfico dos colaboradores e desempenho departamental.
+                    </p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/isaiassousa032/Analise-de-Dados-Censo-2022" target="_blank" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary hover:border-secondary transition-all cursor-pointer w-fit px-6 py-3 bg-surface-elevated border border-border rounded-lg shadow-sm">
+                        Ver Repositório <span class="material-symbols-outlined text-sm">code</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Iframe Power BI (Lado Direito) -->
+            <div class="xl:w-2/3 h-[500px] md:h-[600px] bg-surface-elevated rounded-xl overflow-hidden border border-border relative">
+                <!-- Overlay de Carregamento (Opcional, útil enquanto o iframe não aparece) -->
+                <div class="absolute inset-0 flex items-center justify-center -z-10 text-muted">
+                    <span class="material-symbols-outlined animate-spin text-4xl">autorenew</span>
+                </div>
+                <!-- Iframe Embutido -->
+                <iframe 
+                    title="Dashboard_RH" 
+                    class="w-full h-full relative z-10"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiZjkxYTI4MDctMjE1MC00YzA0LThiOTctYmFkMjM2YWI0YTQ3IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9&pageName=2a9bd14308e7f3acace9" 
+                    frameborder="0" 
+                    loading="lazy"
+                    allowFullScreen="true">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Projeto 2: TikTok -->
+        <div class="flex flex-col xl:flex-row gap-8 xl:gap-12 bg-surface rounded-2xl border border-border p-6 md:p-10 shadow-lg">
+            <div class="xl:w-1/3 flex flex-col justify-between">
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Mídias Sociais</span>
+                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Python</span>
+                    </div>
+                    <h2 class="font-headline text-3xl font-bold text-foreground mb-4">Projeto TikTok</h2>
+                    <p class="text-muted leading-relaxed mb-6">
+                        Análise de tendências e engajamento na plataforma TikTok. Extração e tratamento de dados focando em métricas preditivas de viralização e comportamento de usuários.
+                    </p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/isaiassousa032/projeto-tiktok" target="_blank" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary hover:border-secondary transition-all cursor-pointer w-fit px-6 py-3 bg-surface-elevated border border-border rounded-lg shadow-sm">
+                        Ver Repositório <span class="material-symbols-outlined text-sm">code</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Se não tiver dashboard em iframe, usamos imagem grande -->
+            <div class="xl:w-2/3 h-[400px] xl:h-auto bg-surface-elevated rounded-xl overflow-hidden border border-border">
+                <img src="imagem_projeto_tiktok.png" alt="Projeto TikTok" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"/>
+            </div>
+        </div>
+
+        <!-- Projeto 3: Hábitos Digitais -->
+        <div class="flex flex-col xl:flex-row gap-8 xl:gap-12 bg-surface rounded-2xl border border-border p-6 md:p-10 shadow-lg">
+            <div class="xl:w-1/3 flex flex-col justify-between">
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Comportamento</span>
+                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">SQL</span>
+                    </div>
+                    <h2 class="font-headline text-3xl font-bold text-foreground mb-4">Hábitos Digitais e Vício em Smartphones</h2>
+                    <p class="text-muted leading-relaxed mb-6">
+                        Estudo aprofundado sobre o impacto do tempo de tela em métricas de bem-estar. Limpeza e modelagem de dados para descobrir correlações entre uso de aplicativos e níveis de estresse.
+                    </p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/isaiassousa032/habitos-digitais-e-vicio-em-smarphones-dados_sinteticos" target="_blank" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary hover:border-secondary transition-all cursor-pointer w-fit px-6 py-3 bg-surface-elevated border border-border rounded-lg shadow-sm">
+                        Ver Repositório <span class="material-symbols-outlined text-sm">code</span>
+                    </a>
+                </div>
+            </div>
+            <div class="xl:w-2/3 h-[400px] xl:h-auto bg-surface-elevated rounded-xl overflow-hidden border border-border">
+                <img src="imagem_projeto_habitos.png" alt="Projeto Hábitos Digitais" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"/>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Simples -->
+    <footer class="w-full py-10 border-t border-border bg-surface text-center">
+        <p class="text-muted/60 font-body text-xs uppercase tracking-widest">
+            © 2026 Isaias Santos. Transformando dados em inteligência.
+        </p>
+    </footer>
+
+    <script>
+        // Dark/Light Theme Toggle (mesma lógica do index)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            htmlElement.classList.remove('dark');
+            themeIcon.textContent = 'dark_mode';
+        } else {
+            htmlElement.classList.add('dark');
+            themeIcon.textContent = 'light_mode';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = 'light_mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.textContent = 'dark_mode';
+            }
+        });
+    </script>
+</body>
+</html>
