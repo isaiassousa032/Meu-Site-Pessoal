@@ -6,7 +6,7 @@
     <title>Isaias Santos | Analista de Dados</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="favicon_com_fundo_removido.png" type="image/png" />
+    <link rel="icon" href="/assets/favicon_com_fundo_removido.png" type="image/png" />
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,7 +23,7 @@
     <style>
         :root {
             /* Light Mode Variables */
-            --bg-color: #f8f9f8;
+            --bg-color: #F0F0F0;
             --surface: #ffffff;
             --surface-elevated: #eceeec;
             --text-main: #003b36;
@@ -97,11 +97,16 @@
             </button>
 
             <!-- Desktop Menu -->
-            <nav class="hidden md:flex gap-8">
+            <nav class="hidden md:flex items-center gap-8">
                 <a href="#sobre" class="text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Sobre</a>
                 <a href="#projetos" class="text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Projetos</a>
                 <a href="#formacao" class="text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Formação</a>
                 <a href="#contato" class="text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Contato</a>
+                
+                <!-- Ícone de Download do Currículo (Desktop) -->
+                <a href="curriculo_isaias_santos.pdf" download target="_blank" class="text-muted hover:text-secondary transition-colors flex items-center" title="Baixar Currículo">
+                    <span class="material-symbols-outlined text-[22px]">download</span>
+                </a>
             </nav>
         </div>
     </header>
@@ -120,7 +125,6 @@
             <a href="#formacao" class="mobile-link font-headline text-3xl tracking-tight text-foreground hover:text-secondary transition-colors">Formação Acadêmica</a>
             <a href="#certificacoes" class="mobile-link font-headline text-3xl tracking-tight text-foreground hover:text-secondary transition-colors">Certificações</a>
             <a href="#cursos" class="mobile-link font-headline text-3xl tracking-tight text-foreground hover:text-secondary transition-colors">Cursos</a>
-            <a href="#livros" class="mobile-link font-headline text-3xl tracking-tight text-foreground hover:text-secondary transition-colors">Livros Lidos</a>
             <a href="#idiomas" class="mobile-link font-headline text-3xl tracking-tight text-foreground hover:text-secondary transition-colors">Idiomas</a>
             <a href="#contato" class="mobile-link font-headline text-3xl tracking-tight text-foreground hover:text-secondary transition-colors">Contatos</a>
 
@@ -176,7 +180,7 @@
                     <!-- Foto Circular -->
                     <div class="aspect-square w-full relative rounded-full overflow-hidden group shadow-2xl border-4 border-surface">
                         <!-- Substitua pela sua foto -->
-                        <img src="foto-de-perfil-fundo-cinza.png" alt="Foto de perfil de Isaias Santos" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80';"/>
+                        <img src="assets/foto-de-perfil-fundo-cinza.png" alt="Foto de perfil de Isaias Santos" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80';"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-all duration-700"></div>
                     </div>
                 </div>
@@ -203,6 +207,99 @@
                 </div>
             </div>
         </div>
+
+                <!-- Mini Seção de Habilidades / Tecnologias -->
+        <div class="mt-24 pt-16 border-t border-border flex flex-col items-center">
+            <h3 class="font-headline text-2xl md:text-3xl font-light text-foreground mb-10 flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary text-3xl">terminal</span>
+                Principais Tecnologias
+            </h3>
+            
+            <!-- Grid de Ícones -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl">
+                
+                <!-- SQL -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <span class="material-symbols-outlined text-4xl text-muted transition-all duration-300 group-hover:text-secondary">database</span>
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">SQL</span>
+                </div>
+                
+                <!-- PostgreSQL -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/postgresql.svg" alt="PostgreSQL" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">PostgreSQL</span>
+                </div>
+
+                <!-- Power BI -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/powerbi.svg" alt="Power BI" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">Power BI</span>
+                </div>
+
+                <!-- Python -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/python.svg" alt="Python" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">Python</span>
+                </div>
+
+                <!-- Pandas -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/pandas.svg" alt="Pandas" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">Pandas</span>
+                </div>
+
+                <!-- NumPy -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/numpy.svg" alt="NumPy" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">NumPy</span>
+                </div>
+                
+                <!-- Matplotlib -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/matplotlib.svg" alt="Matplotlib" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">Matplotlib</span>
+                </div>
+                
+                <!-- Excel -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/microsoft-excel-2025.svg" alt="Excel" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">Excel</span>
+                </div>
+
+                <!-- Jupyter Notebook -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/jupyter.svg" alt="Jupyter Notebook" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">Jupyter</span>
+                </div>
+
+                <!-- Git -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/git.svg" alt="Git" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">Git</span>
+                </div>
+
+                <!-- GitHub -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <!-- GitHub é preto, usamos dark:group-hover:invert para ele ficar visível (branco) no modo escuro ao passar o mouse -->
+                    <img src="icons/github.svg" alt="GitHub" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 dark:group-hover:invert" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">GitHub</span>
+                </div>
+
+                <!-- Databricks -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/databricks.svg" alt="Databricks" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">Databricks</span>
+                </div>
+
+
+                <!-- Google BigQuery -->
+                <div class="group relative flex justify-center items-center w-16 h-16 md:w-20 md:h-20 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <img src="icons/googlebigquery.svg" alt="Google BigQuery" class="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100" />
+                    <span class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-xl transform translate-y-2 group-hover:translate-y-0 z-10">BigQuery</span>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <!-- Projetos (Horizontal Scroll) -->
@@ -218,7 +315,7 @@
             <!-- Projeto 1 (RH) -->
             <div class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="imagem_projeto_rh.png" alt="Imagem do Projeto RH" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?fit=crop&w=800&q=80';"/>
+                    <img src="assets/imagem_projeto_rh.png" alt="Imagem do Projeto RH" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?fit=crop&w=800&q=80';"/>
                 </div>
                 <div class="p-8 flex-1 flex flex-col justify-between">
                     <div>
@@ -241,7 +338,7 @@
             <!-- Projeto 2 (TikTok) -->
             <div class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="imagem_projeto_tiktok.png" alt="Imagem do Projeto TikTok" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?fit=crop&w=800&q=80';"/>
+                    <img src="assets/imagem_projeto_tiktok.png" alt="Imagem do Projeto TikTok" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?fit=crop&w=800&q=80';"/>
                 </div>
                 <div class="p-8 flex-1 flex flex-col justify-between">
                     <div>
@@ -261,7 +358,7 @@
             <!-- Projeto 3 (Hábitos Digitais) -->
             <div class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="imagem_projeto_habitos.png" alt="Imagem do Projeto Hábitos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?fit=crop&w=800&q=80';"/>
+                    <img src="assets/imagem_projeto_habitos.png" alt="Imagem do Projeto Hábitos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?fit=crop&w=800&q=80';"/>
                 </div>
                 <div class="p-8 flex-1 flex flex-col justify-between">
                     <div>
@@ -357,79 +454,88 @@
         </div>
     </section>
 
-    <!-- Bento Grid Section (Cursos & Livros) -->
-    <section class="py-24 px-6 md:px-12 lg:px-24 bg-surface">
-        <div class="grid lg:grid-cols-3 gap-8">
-            <!-- Cursos -->
-            <div id="cursos" class="lg:row-span-2 bg-surface-elevated rounded-2xl p-8 lg:p-10 border border-border">
-                <h2 class="font-headline text-3xl font-light text-foreground mb-8 flex items-center gap-3">
-                    <span class="material-symbols-outlined text-secondary">workspace_premium</span>
-                    Cursos
-                </h2>
-                <div class="pb-4">
-                        <span class="text-xs text-secondary font-mono mb-1 block">Databricks</span>
-                        <h4 class="font-headline font-bold text-foreground">Academy Accreditation – Databricks Fundamentals (Databricks Academy)</h4>
-                        <p class="text-sm text-muted">Big Data, Data Lakehouse e Cloud</p>
-                    </div>
-                <div class="space-y-6">
-                    <div class="border-b border-border pb-4">
-                        <span class="text-xs text-secondary font-mono mb-1 block">Harvard University</span>
-                        <h4 class="font-headline font-bold text-foreground">CS50</h4>
-                        <p class="text-sm text-muted">Introduction to Computer Science</p>
-                    </div>
-                    <div class="pb-4">
-                        <span class="text-xs text-secondary font-mono mb-1 block">Santander Open Academy</span>
-                        <h4 class="font-headline font-bold text-foreground">Fundamentos de IA</h4>
-                        <p class="text-sm text-muted">Inteligência Artificial e Aplicações</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Cursos e Especializações -->
+    <section id="cursos" class="py-24 px-6 md:px-12 lg:px-24 bg-surface">
+        <div class="mb-16">
+            <span class="inline-block px-4 py-1.5 bg-background text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4 rounded-full border border-border shadow-sm">
+                Especializações
+            </span>
+            <h2 class="font-headline text-4xl md:text-5xl font-light text-foreground flex items-center gap-4">
+                <span class="material-symbols-outlined text-secondary text-4xl md:text-5xl">workspace_premium</span>
+                Cursos Complementares
+            </h2>
+        </div>
 
-            <!-- Livros Lidos e Lendo -->
-            <div id="livros" class="lg:col-span-2 bg-background rounded-2xl p-8 lg:p-10 border border-border">
-                <div class="flex justify-between items-center mb-8">
-                    <h2 class="font-headline text-3xl font-light text-foreground">Biblioteca</h2>
-                    <span class="material-symbols-outlined text-secondary text-4xl">menu_book</span>
-                </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Curso 1 -->
+            <div class="group relative overflow-hidden bg-surface-elevated rounded-2xl p-8 border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(233,195,73,0.05)] hover:-translate-y-1">
+                <!-- Ícone Fundo -->
+                <span class="material-symbols-outlined absolute -bottom-6 -right-6 text-9xl text-muted opacity-[0.03] group-hover:opacity-10 group-hover:scale-110 transition-all duration-500 pointer-events-none">database</span>
                 
-                <div class="mb-6 border-b border-border pb-2">
-                    <h3 class="text-sm uppercase tracking-widest text-muted font-bold">Lidos</h3>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                    <div class="group cursor-default">
-                        <div class="h-32 bg-surface-elevated mb-4 rounded-xl shadow-md border border-border flex items-center justify-center p-4">
-                            <span class="text-xs font-bold text-center text-primary uppercase">Python para análise de dados</span>
-                        </div>
-                    </div>
+                <!-- Status Ponto Pulsante -->
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+                    </span>
+                    <span class="text-[10px] text-muted uppercase tracking-widest font-bold">Concluído</span>
                 </div>
 
-                <div class="mb-6 border-b border-border pb-2">
-                    <h3 class="text-sm uppercase tracking-widest text-secondary font-bold">Lendo Atualmente</h3>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="group cursor-default">
-                        <div class="h-32 bg-surface mb-4 rounded-xl shadow-md border border-border flex items-center justify-center p-4 border-l-2 border-l-secondary relative overflow-hidden">
-                            <div class="absolute inset-0 bg-secondary/5"></div>
-                            <span class="text-xs font-bold text-center text-foreground uppercase relative z-10">SQL Guia Prático</span>
-                        </div>
-                    </div>
-                    <div class="group cursor-default">
-                        <div class="h-32 bg-surface mb-4 rounded-xl shadow-md border border-border flex items-center justify-center p-4 border-l-2 border-l-secondary relative overflow-hidden">
-                            <div class="absolute inset-0 bg-secondary/5"></div>
-                            <span class="text-xs font-bold text-center text-foreground uppercase relative z-10">Storytelling com Dados</span>
-                        </div>
-                    </div>
-                </div>
+                <span class="text-xs text-secondary font-mono mb-2 block font-bold">Databricks Academy</span>
+                <h4 class="font-headline font-bold text-foreground text-xl mb-3 pr-4">Academy Accreditation – Databricks Fundamentals</h4>
+                <p class="text-sm text-muted leading-relaxed">Big Data, Data Lakehouse e Cloud Computing.</p>
             </div>
 
-            <!-- Contact Teaser -->
-            <div id="contato" class="lg:col-span-2 bg-secondary rounded-2xl p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-8 group">
-                <div>
-                    <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-[#111413] leading-none">Vamos transformar seus dados em inteligência estratégica?</h2>
-                    <p class="text-[#111413]/80 mt-2 font-medium">Estou disponível para novos desafios como Analista de Dados Júnior. Como posso ajudar o seu time hoje?</p>
+            <!-- Curso 2 -->
+            <div class="group relative overflow-hidden bg-surface-elevated rounded-2xl p-8 border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(233,195,73,0.05)] hover:-translate-y-1">
+                <span class="material-symbols-outlined absolute -bottom-6 -right-6 text-9xl text-muted opacity-[0.03] group-hover:opacity-10 group-hover:scale-110 transition-all duration-500 pointer-events-none">code</span>
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+                    </span>
+                    <span class="text-[10px] text-muted uppercase tracking-widest font-bold">Concluído</span>
                 </div>
-                <a href="mailto:isaiassousa032@gmail.com" class="bg-[#111413] text-secondary px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform whitespace-nowrap text-center w-full md:w-auto">
-                    Enviar Email
+                <span class="text-xs text-secondary font-mono mb-2 block font-bold">Harvard University</span>
+                <h4 class="font-headline font-bold text-foreground text-xl mb-3 pr-4">CS50</h4>
+                <p class="text-sm text-muted leading-relaxed">Introduction to Computer Science and Programming.</p>
+            </div>
+
+            <!-- Curso 3 -->
+            <div class="group relative overflow-hidden bg-surface-elevated rounded-2xl p-8 border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(233,195,73,0.05)] hover:-translate-y-1">
+                <span class="material-symbols-outlined absolute -bottom-6 -right-6 text-9xl text-muted opacity-[0.03] group-hover:opacity-10 group-hover:scale-110 transition-all duration-500 pointer-events-none">psychology</span>
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+                    </span>
+                    <span class="text-[10px] text-muted uppercase tracking-widest font-bold">Concluído</span>
+                </div>
+                <span class="text-xs text-secondary font-mono mb-2 block font-bold">Santander Open Academy</span>
+                <h4 class="font-headline font-bold text-foreground text-xl mb-3 pr-4">Fundamentos de IA</h4>
+                <p class="text-sm text-muted leading-relaxed">Inteligência Artificial, Modelos e Aplicações Práticas.</p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contato CTA Final -->
+    <section id="contato" class="py-24 px-6 md:px-12 lg:px-24 bg-background">
+        <div class="w-full bg-secondary rounded-3xl p-10 lg:p-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-10 group shadow-[0_20px_50px_rgba(233,195,73,0.15)] relative overflow-hidden border border-secondary/50">
+            <!-- Decoração de Fundo no Card -->
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-white/20 rounded-full blur-[80px] group-hover:bg-white/30 transition-all duration-700 pointer-events-none"></div>
+            <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-[#111413]/10 rounded-full blur-[40px] pointer-events-none"></div>
+            
+            <div class="relative z-10 md:w-2/3">
+                <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#111413] leading-[1.05] tracking-tight mb-6">
+                    Vamos transformar seus dados em inteligência estratégica?
+                </h2>
+                <p class="text-[#111413]/80 text-lg md:text-xl font-medium max-w-2xl">
+                    Estou disponível para novos desafios como Analista de Dados Júnior. Como posso ajudar o seu time hoje?
+                </p>
+            </div>
+            <div class="relative z-10 w-full md:w-auto flex-shrink-0 mt-4 md:mt-0">
+                <a href="mailto:isaiassousa032@gmail.com" class="inline-flex items-center justify-center gap-3 bg-[#111413] text-secondary px-10 py-5 md:py-6 rounded-full font-bold uppercase tracking-widest text-sm md:text-base hover:scale-105 hover:shadow-2xl hover:bg-black transition-all duration-300 w-full md:w-auto">
+                    Enviar Email <span class="material-symbols-outlined text-[20px]">send</span>
                 </a>
             </div>
         </div>
