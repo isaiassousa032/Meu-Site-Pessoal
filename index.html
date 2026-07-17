@@ -342,8 +342,9 @@
                             Projeto RH</h3>
                     </div>
                     <div class="mt-4 flex flex-col gap-3">
-                        <button id="open-dashboard-btn"
-                            class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary transition-colors cursor-pointer w-fit">
+                        <button class="open-dashboard-btn flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary transition-colors cursor-pointer w-fit"
+                            data-title="Dashboard RH"
+                            data-src="https://app.powerbi.com/view?r=eyJrIjoiZjkxYTI4MDctMjE1MC00YzA0LThiOTctYmFkMjM2YWI0YTQ3IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9">
                             Ver Dashboard <span class="material-symbols-outlined text-sm">bar_chart</span>
                         </button>
                         <a href="https://github.com/isaiassousa032/projeto-rh" target="_blank"
@@ -354,11 +355,11 @@
                 </div>
             </div>
 
-            <!-- Projeto 2 (TikTok) -->
-            <!-- <div
+            <!-- Projeto 2 (Análise de Vendas) -->
+            <div
                 class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
                 <div class="h-48 overflow-hidden relative">
-                    <img src="assets/imagem_projeto_tiktok.png" alt="Imagem do Projeto TikTok"
+                    <img src="assets/Projeto_Xperiun.png" alt="Imagem do Projeto Análise de Vendas - Xperiun"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?fit=crop&w=800&q=80';" />
                 </div>
@@ -366,22 +367,25 @@
                     <div>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span
-                                class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">Análise
-                                de Dados</span>
+                                class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">Power BI</span>
                         </div>
                         <h3
                             class="font-headline text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors line-clamp-2">
-                            Projeto TikTok</h3>
+                            Projeto Análise de Vendas e Produtos</h3>
                     </div>
                     <div class="mt-4 flex flex-col gap-3">
-                        <a href="https://github.com/isaiassousa032/projeto-tiktok" target="_blank"
+                        <button class="open-dashboard-btn flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary transition-colors cursor-pointer w-fit"
+                            data-title="Análise de Vendas"
+                            data-src="https://app.powerbi.com/view?r=eyJrIjoiMDU3YmViODktOWJlZC00NjNjLTg3ZDMtODIyY2EyN2ZkMWMwIiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9">
+                            Ver Dashboard <span class="material-symbols-outlined text-sm">bar_chart</span>
+                        </button>
+                        <a href="https://github.com/isaiassousa032/Projeto_Pratico_Analise_de_Vendas_Xperiun" target="_blank"
                             class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary transition-colors cursor-pointer w-fit">
                             Ver no GitHub <span class="material-symbols-outlined text-sm">arrow_outward</span>
                         </a>
                     </div>
                 </div>
             </div>
-            -->
 
             <!-- Projeto 3 (Hábitos Digitais) -->
             <!-- <div
@@ -665,7 +669,7 @@
             <div class="flex justify-between items-center p-4 border-b border-border bg-surface-elevated">
                 <h3 class="font-headline font-bold text-foreground flex items-center gap-2">
                     <span class="material-symbols-outlined text-secondary">bar_chart</span>
-                    Dashboard RH
+                    <span id="modal-title-text">Dashboard</span>
                 </h3>
                 <button id="close-modal-btn" class="text-muted hover:text-secondary transition-colors">
                     <span class="material-symbols-outlined text-3xl">close</span>
@@ -673,8 +677,8 @@
             </div>
             <!-- Container do Iframe -->
             <div class="flex-1 w-full h-full bg-[#e2e2e2]">
-                <iframe title="Dashboard_RH" class="w-full h-full"
-                    src="https://app.powerbi.com/view?r=eyJrIjoiZjkxYTI4MDctMjE1MC00YzA0LThiOTctYmFkMjM2YWI0YTQ3IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9"
+                <iframe id="modal-iframe" title="Dashboard Dinâmico" class="w-full h-full"
+                    src=""
                     frameborder="0" allowFullScreen="true">
                 </iframe>
             </div>
@@ -683,23 +687,38 @@
 
     <!-- Interactive Scripts -->
     <script>
-        // Lógica do Modal Power BI
+        // Lógica do Modal Power BI Dinâmico
         const modal = document.getElementById('powerbi-modal');
-        const openBtn = document.getElementById('open-dashboard-btn');
         const closeBtn = document.getElementById('close-modal-btn');
+        const modalTitleText = document.getElementById('modal-title-text');
+        const modalIframe = document.getElementById('modal-iframe');
+        const openBtns = document.querySelectorAll('.open-dashboard-btn');
 
-        if (openBtn && modal && closeBtn) {
-            // Abrir modal
-            openBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Impede rolagem do site no fundo
+        if (modal && closeBtn) {
+            // Abrir modal e injetar dados dinâmicos de cada botão
+            openBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Pegar os atributos personalizados do botão que foi clicado
+                    const title = btn.getAttribute('data-title');
+                    const src = btn.getAttribute('data-src');
+
+                    // Atualizar o título e o link (src) do Iframe no Modal
+                    if (modalTitleText) modalTitleText.textContent = title;
+                    if (modalIframe) modalIframe.src = src;
+
+                    // Exibir Modal
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Impede rolagem do site no fundo
+                });
             });
 
             // Fechar modal clicando no botão X
             closeBtn.addEventListener('click', () => {
                 modal.classList.add('hidden');
                 document.body.style.overflow = ''; // Retorna a rolagem
+                if (modalIframe) modalIframe.src = ''; // Limpa o iframe para interromper o carregamento do dashboard no fundo
             });
 
             // Fechar modal clicando fora da caixa do dashboard
@@ -707,6 +726,7 @@
                 if (e.target === modal) {
                     modal.classList.add('hidden');
                     document.body.style.overflow = '';
+                    if (modalIframe) modalIframe.src = ''; // Limpa o iframe
                 }
             });
         }
@@ -763,6 +783,5 @@
             link.addEventListener('click', toggleMenu);
         });
     </script>
-</body>
 
 </html>
