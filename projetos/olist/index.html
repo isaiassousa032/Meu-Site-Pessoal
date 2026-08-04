@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto Olist | Isaias Santos</title>
+
+    <link rel="icon" href="../../assets/favicon_com_fundo_removido.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL,GRAD,opsz,wght@0,0,24,300" rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg-color: #f8f9f8;
+            --surface: #ffffff;
+            --surface-elevated: #eceeec;
+            --text-main: #003b36;
+            --text-muted: #404847;
+            --primary: #003b36;
+            --secondary: #b8860b;
+            --border: #bfc9c7;
+        }
+
+        .dark {
+            --bg-color: #0a0f0d;
+            --surface: #111514;
+            --surface-elevated: #1a201e;
+            --text-main: #e2e3e1;
+            --text-muted: #9b9c9c;
+            --primary: #9ed0c9;
+            --secondary: #e9c349;
+            --border: #2a3230;
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: "var(--bg-color)",
+                        surface: "var(--surface)",
+                        elevated: "var(--surface-elevated)",
+                        foreground: "var(--text-main)",
+                        muted: "var(--text-muted)",
+                        primary: "var(--primary)",
+                        secondary: "var(--secondary)",
+                        border: "var(--border)",
+                    },
+                    fontFamily: {
+                        headline: ["Manrope", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background text-foreground font-body transition-colors duration-300 selection:bg-secondary selection:text-[#111413] overflow-x-hidden">
+    <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-5 bg-background/80 backdrop-blur-md border-b border-border">
+        <a href="../../#projetos" class="flex items-center gap-2 text-xl font-extrabold text-foreground tracking-widest font-headline uppercase hover:text-secondary transition-colors">
+            <span class="material-symbols-outlined text-2xl">arrow_back</span>
+            Isaias<span class="text-secondary"> Santos</span>
+        </a>
+
+        <div class="flex items-center gap-6">
+            <button id="theme-toggle" class="text-foreground hover:text-secondary transition-colors" title="Alternar modo escuro/claro" aria-label="Alternar modo escuro/claro">
+                <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
+            </button>
+            <a href="../../#projetos" class="hidden md:block text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Voltar aos projetos</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="pt-36 pb-20 px-6 md:px-12 lg:px-24 bg-surface border-b border-border">
+            <div class="max-w-5xl">
+                <span class="inline-block px-4 py-1.5 bg-surface-elevated text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 rounded-full border border-border">
+                    Projeto de dados · Olist
+                </span>
+                <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-foreground leading-[1.05] mb-6">
+                    Projeto Olist
+                </h1>
+                <p class="max-w-3xl text-lg md:text-xl text-muted leading-relaxed mb-10">
+                    Solução analítica end-to-end para monitorar 99 mil pedidos da Olist entre janeiro de 2017 e agosto de 2018, conectando PostgreSQL, Power Query, Power BI e DAX.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-all">
+                        Ver Dashboard
+                        <span class="material-symbols-outlined text-[18px]">bar_chart</span>
+                    </a>
+                    <a href="https://github.com/isaiassousa032/Projeto_Olist" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-surface-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-all">
+                        Ver Código no GitHub
+                        <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 md:px-12 lg:px-24 py-12 bg-background border-b border-border">
+            <div class="max-w-6xl grid sm:grid-cols-3 gap-6">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.18em] text-muted">Escopo</span>
+                    <p class="mt-2 font-headline text-xl font-bold">99 mil pedidos · 2017–2018</p>
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-[0.18em] text-muted">Stack principal</span>
+                    <p class="mt-2 font-headline text-xl font-bold">PostgreSQL · Neon · Power BI</p>
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-[0.18em] text-muted">Entrega</span>
+                    <p class="mt-2 font-headline text-xl font-bold">3 visões analíticas</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="objetivo" class="px-6 md:px-12 lg:px-24 py-20">
+            <div class="max-w-6xl grid lg:grid-cols-2 gap-12">
+                <div>
+                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">01 · Contexto</span>
+                    <h2 class="font-headline text-4xl font-bold mt-3 mb-5">Objetivo do projeto</h2>
+                    <p class="text-muted leading-relaxed">
+                        Transformar 9 arquivos CSV do dataset público da Olist em um aplicativo analítico conectado a um banco PostgreSQL na nuvem, com foco em faturamento, logística e satisfação do cliente.
+                    </p>
+                </div>
+                <div class="bg-surface rounded-2xl border border-border p-8">
+                    <h3 class="font-headline text-2xl font-bold mb-4">Problema de negócio</h3>
+                    <p class="text-muted leading-relaxed">
+                        A operação estava distribuída em 9 tabelas relacionais. O projeto criou uma camada única para acompanhar receita, eficiência de entrega e percepção do consumidor dentro do recorte de janeiro de 2017 a agosto de 2018.
+                    </p>
+                    <ul class="mt-5 space-y-3 text-muted">
+                        <li class="flex gap-3"><span class="text-secondary">•</span> O faturamento chegou a R$ 15,84 milhões?</li>
+                        <li class="flex gap-3"><span class="text-secondary">•</span> Qual é o tempo médio de entrega e a taxa de atraso?</li>
+                        <li class="flex gap-3"><span class="text-secondary">•</span> Como as avaliações se distribuem entre as categorias?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="px-6 md:px-12 lg:px-24 py-20 bg-surface border-y border-border">
+            <div class="max-w-6xl">
+                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">02 · Ferramentas</span>
+                <h2 class="font-headline text-4xl font-bold mt-3 mb-8">Tecnologias utilizadas</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">PostgreSQL</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">Neon</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">DataGrip</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">Power Query</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">Power BI</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">DAX</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">Figma</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="arquitetura" class="px-6 md:px-12 lg:px-24 py-20">
+            <div class="max-w-6xl">
+                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">03 · Solução</span>
+                <h2 class="font-headline text-4xl font-bold mt-3 mb-10">Arquitetura da solução</h2>
+                <div class="flex flex-col md:flex-row gap-4 items-stretch">
+                    <div class="md:flex-1 bg-surface border border-border rounded-2xl p-6">
+                        <span class="text-secondary font-headline text-3xl font-bold">01</span>
+                        <h3 class="font-headline text-lg font-bold mt-4 mb-2">9 CSVs do Kaggle</h3>
+                        <p class="text-sm text-muted leading-relaxed">Pedidos, itens, pagamentos, produtos, vendedores, clientes e avaliações do dataset público.</p>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center text-secondary"><span class="material-symbols-outlined">arrow_forward</span></div>
+                    <div class="md:flex-1 bg-surface border border-border rounded-2xl p-6">
+                        <span class="text-secondary font-headline text-3xl font-bold">02</span>
+                        <h3 class="font-headline text-lg font-bold mt-4 mb-2">Neon + PostgreSQL</h3>
+                        <p class="text-sm text-muted leading-relaxed">Banco relacional na nuvem com schema <code>olist</code> e carga das 9 tabelas.</p>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center text-secondary"><span class="material-symbols-outlined">arrow_forward</span></div>
+                    <div class="md:flex-1 bg-surface border border-border rounded-2xl p-6">
+                        <span class="text-secondary font-headline text-3xl font-bold">03</span>
+                        <h3 class="font-headline text-lg font-bold mt-4 mb-2">Star Schema</h3>
+                        <p class="text-sm text-muted leading-relaxed">Fatos de vendas, entregas e avaliações ligados a clientes, produtos, vendedores e calendário.</p>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center text-secondary"><span class="material-symbols-outlined">arrow_forward</span></div>
+                    <div class="md:flex-1 bg-surface border border-border rounded-2xl p-6">
+                        <span class="text-secondary font-headline text-3xl font-bold">04</span>
+                        <h3 class="font-headline text-lg font-bold mt-4 mb-2">Power BI + DAX</h3>
+                        <p class="text-sm text-muted leading-relaxed">Três visões com inteligência temporal, filtros sincronizados e layout móvel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="etl-modelagem" class="px-6 md:px-12 lg:px-24 py-20 bg-surface border-y border-border">
+            <div class="max-w-6xl grid lg:grid-cols-2 gap-8">
+                <article class="bg-background rounded-2xl border border-border p-8">
+                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">04 · ETL</span>
+                    <h2 class="font-headline text-3xl font-bold mt-3 mb-5">Preparação dos dados</h2>
+                    <ul class="space-y-4 text-muted leading-relaxed">
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Importação dos 9 CSVs do Kaggle para o PostgreSQL hospedado no Neon.</span></li>
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Higienização e tipagem de datas e moedas no Power Query.</span></li>
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Criação da tabela <code>dCalendario</code> e das colunas de apoio de geolocalização.</span></li>
+                    </ul>
+                </article>
+                <article class="bg-background rounded-2xl border border-border p-8">
+                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">05 · Modelagem</span>
+                    <h2 class="font-headline text-3xl font-bold mt-3 mb-5">Modelo para análise</h2>
+                    <ul class="space-y-4 text-muted leading-relaxed">
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Star Schema com fatos de Vendas, Entregas e Avaliações.</span></li>
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Dimensões de Clientes, Produtos, Vendedores e Calendário conectadas ao modelo.</span></li>
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Medidas DAX para YoY, MoM, acumulados, médias e indicadores operacionais.</span></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="dashboard" class="px-6 md:px-12 lg:px-24 py-20">
+            <div class="max-w-6xl grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">06 · Dashboard</span>
+                    <h2 class="font-headline text-4xl font-bold mt-3 mb-5">Três visões para operar o e-commerce</h2>
+                    <p class="text-muted leading-relaxed mb-6">
+                        A aplicação combina Visão Geral, Eficiência Logística e Satisfação do Cliente. Os filtros por período, categoria e região permitem sair do resultado consolidado e investigar a operação.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <div class="bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Faturamento</span><strong class="block mt-1 font-headline text-xl">R$ 15,84 mi</strong></div>
+                        <div class="bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Pedidos</span><strong class="block mt-1 font-headline text-xl">99 mil</strong></div>
+                        <div class="bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Entrega média</span><strong class="block mt-1 font-headline text-xl">12,50 dias</strong></div>
+                        <div class="bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Nota média</span><strong class="block mt-1 font-headline text-xl">4,09 / 5</strong></div>
+                    </div>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-secondary font-bold hover:gap-3 transition-all">
+                        Explorar no Power BI
+                        <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+                    </a>
+                </div>
+                <div class="bg-surface rounded-2xl border border-border overflow-hidden shadow-lg">
+                    <img src="../../assets/Projeto_Olist2.png" alt="Prévia do dashboard do Projeto Olist" class="w-full aspect-video object-cover" />
+                </div>
+            </div>
+        </section>
+
+        <section id="insights" class="px-6 md:px-12 lg:px-24 py-20 bg-surface border-y border-border">
+            <div class="max-w-6xl">
+                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">07 · Análise</span>
+                <h2 class="font-headline text-4xl font-bold mt-3 mb-8">Indicadores que orientam a operação</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="bg-background rounded-2xl border border-border p-7">
+                        <span class="material-symbols-outlined text-secondary text-3xl">trending_up</span>
+                        <h3 class="font-headline text-xl font-bold mt-5 mb-3">Resultado comercial</h3>
+                        <p class="text-muted leading-relaxed">R$ 15,84 milhões de faturamento, 99 mil pedidos, ticket médio de R$ 136,68 e crescimento YoY de 119,02%.</p>
+                    </article>
+                    <article class="bg-background rounded-2xl border border-border p-7">
+                        <span class="material-symbols-outlined text-secondary text-3xl">local_shipping</span>
+                        <h3 class="font-headline text-xl font-bold mt-5 mb-3">Eficiência logística</h3>
+                        <p class="text-muted leading-relaxed">Tempo médio de entrega de 12,50 dias e taxa de atraso operacional de 6,57%, acompanhados por período e região.</p>
+                    </article>
+                    <article class="bg-background rounded-2xl border border-border p-7">
+                        <span class="material-symbols-outlined text-secondary text-3xl">sentiment_satisfied</span>
+                        <h3 class="font-headline text-xl font-bold mt-5 mb-3">Satisfação do cliente</h3>
+                        <p class="text-muted leading-relaxed">Nota média de 4,09/5, com distribuição das avaliações e detalhamento por categoria de produto.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultados" class="px-6 md:px-12 lg:px-24 py-20">
+            <div class="max-w-4xl">
+                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">08 · Resultados</span>
+                <h2 class="font-headline text-4xl font-bold mt-3 mb-5">Uma base para decisões de e-commerce</h2>
+                <p class="text-muted leading-relaxed text-lg">
+                    O projeto documenta o caminho dos 9 CSVs até o Power BI e entrega uma leitura executiva da operação: crescimento de vendas, eficiência de entrega e satisfação do cliente no mesmo modelo analítico.
+                </p>
+                <div class="mt-8 p-6 md:p-8 bg-surface rounded-2xl border border-border">
+                    <p class="font-headline text-xl font-bold">Explore o pipeline completo</p>
+                    <p class="text-muted mt-2 mb-6">Veja as três visões do dashboard e consulte o repositório para acompanhar os 9 CSVs, o modelo dimensional, os scripts SQL e as medidas DAX.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-all">
+                            Ver Dashboard <span class="material-symbols-outlined text-[18px]">bar_chart</span>
+                        </a>
+                        <a href="https://github.com/isaiassousa032/Projeto_Olist" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 bg-surface-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-all">
+                            Ver Código no GitHub <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full py-10 border-t border-border bg-surface text-center">
+        <p class="text-muted/60 font-body text-xs uppercase tracking-widest">© 2026 Isaias Santos. Transformando dados em inteligência.</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            htmlElement.classList.remove('dark');
+            themeIcon.textContent = 'dark_mode';
+        } else {
+            htmlElement.classList.add('dark');
+            themeIcon.textContent = 'light_mode';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = 'light_mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.textContent = 'dark_mode';
+            }
+        });
+    </script>
+</body>
+
+</html>
