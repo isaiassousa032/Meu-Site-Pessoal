@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="dark">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projetos | Isaias Santos</title>
 
-    <!-- Favicon -->
     <link rel="icon" href="../assets/favicon_com_fundo_removido.png" type="image/png" />
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    
-    <!-- Material Symbols (Icons) -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@300,0,0,24" rel="stylesheet" />
 
-    <!-- Tailwind Config & CSS Variables for Dark/Light Theme -->
     <style>
         :root {
-            /* Light Mode Variables */
-            --bg-color: #f8f9f8;
+            --bg-color: #F0F0F0;
             --surface: #ffffff;
             --surface-elevated: #eceeec;
             --text-main: #003b36;
             --text-muted: #404847;
             --primary: #003b36;
-            --secondary: #b8860b; 
+            --secondary: #b8860b;
             --border: #bfc9c7;
         }
 
         .dark {
-            /* Dark Mode Variables */
             --bg-color: #0a0f0d;
             --surface: #111514;
             --surface-elevated: #1a201e;
@@ -45,9 +37,14 @@
             --border: #2a3230;
         }
 
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         html { scroll-behavior: smooth; }
+
+        .hero-grid {
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: linear-gradient(to bottom, black, transparent 88%);
+            opacity: 0.16;
+        }
     </style>
 
     <script>
@@ -74,142 +71,201 @@
         }
     </script>
 </head>
+
 <body class="bg-background text-foreground font-body transition-colors duration-300 selection:bg-secondary selection:text-[#111413] overflow-x-hidden">
 
-    <!-- Navbar -->
     <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-5 bg-background/80 backdrop-blur-md border-b border-border transition-colors duration-300">
-        <a href="../" class="flex items-center gap-2 text-xl font-extrabold text-foreground tracking-widest font-headline uppercase hover:text-secondary transition-colors">
+        <a href="../" class="flex items-center gap-2 text-xl font-extrabold text-foreground tracking-widest font-headline uppercase hover:text-secondary transition-colors" aria-label="Voltar para a página inicial">
             <span class="material-symbols-outlined text-2xl">arrow_back</span>
             Isaias<span class="text-secondary"> Santos</span>
         </a>
-        
+
         <div class="flex items-center gap-6">
-            <button id="theme-toggle" class="text-foreground hover:text-secondary transition-colors" title="Alternar Modo Escuro/Claro">
+            <button id="theme-toggle" class="text-foreground hover:text-secondary transition-colors" title="Alternar modo escuro/claro" aria-label="Alternar modo escuro/claro">
                 <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
             </button>
-            <a href="../" class="hidden md:block text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Voltar ao Início</a>
+            <a href="../#projetos" class="hidden md:block text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Voltar ao início</a>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="pt-32 pb-16 px-6 md:px-12 lg:px-24 bg-surface border-b border-border">
-        <div class="max-w-4xl">
-            <span class="inline-block px-4 py-1.5 bg-surface-elevated text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 rounded-full border border-border">
-                Galeria
-            </span>
-            <h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tighter text-foreground leading-[1.1] mb-6">
-                Meus Projetos
-            </h1>
-        
-        </div>
-    </section>
+    <main>
+        <section class="relative isolate overflow-hidden pt-36 pb-20 px-6 md:px-12 lg:px-24 bg-surface border-b border-border">
+            <div class="hero-grid absolute inset-0 -z-10 pointer-events-none"></div>
+            <div class="absolute -right-24 -top-32 -z-10 h-80 w-80 rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
 
-    <!-- Lista de Projetos Detailhados -->
-    <div class="px-6 md:px-12 lg:px-24 py-16 space-y-24 bg-background">
-        
-        <!-- Projeto 1: RH (Com Dashboard) -->
-        <div class="flex flex-col xl:flex-row gap-8 xl:gap-12 bg-surface rounded-2xl border border-border p-6 md:p-10 shadow-lg">
-            <!-- Informações (Lado Esquerdo) -->
-            <div class="xl:w-1/3 flex flex-col justify-between">
-                <div>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Recursos Humanos</span>
-                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Power BI</span>
+            <div class="relative max-w-4xl">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-surface-elevated text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 rounded-full border border-border">
+                    <span class="h-1.5 w-1.5 rounded-full bg-secondary"></span>
+                    Portfólio analítico
+                </span>
+                <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-foreground leading-[1.05] mb-6">
+                    Projetos que transformam dados em decisões.
+                </h1>
+                <p class="max-w-3xl text-lg md:text-xl text-muted leading-relaxed">
+                    Uma seleção de projetos de dados, dashboards e análises desenvolvidos para transformar bases complexas em histórias claras para o negócio.
+                </p>
+
+                <div class="mt-10 flex flex-wrap gap-x-10 gap-y-5 text-sm">
+                    <div>
+                        <span class="block text-2xl font-headline font-bold text-foreground">03</span>
+                        <span class="text-muted uppercase tracking-[0.16em]">Projetos em destaque</span>
                     </div>
-                    <h2 class="font-headline text-3xl font-bold text-foreground mb-4">Projeto Análise de RH</h2>
-                    <p class="text-muted leading-relaxed mb-6">
-                        Neste projeto, desenvolvi um dashboard interativo para análise de métricas de Recursos Humanos. O objetivo foi identificar padrões de rotatividade, perfil demográfico dos colaboradores e desempenho departamental.
-                    </p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="https://github.com/isaiassousa032/projeto-rh" target="_blank" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary hover:border-secondary transition-all cursor-pointer w-fit px-6 py-3 bg-surface-elevated border border-border rounded-lg shadow-sm">
-                        Ver no Github<span class="material-symbols-outlined text-sm">code</span>
-                    </a>
-                </div>
-            </div>
-            <!-- Iframe Power BI (Lado Direito) -->
-            <div class="xl:w-2/3 h-[500px] md:h-[600px] bg-surface-elevated rounded-xl overflow-hidden border border-border relative">
-                <!-- Overlay de Carregamento (Opcional, útil enquanto o iframe não aparece) -->
-                <div class="absolute inset-0 flex items-center justify-center -z-10 text-muted">
-                    <span class="material-symbols-outlined animate-spin text-4xl">autorenew</span>
-                </div>
-                <!-- Iframe Embutido -->
-                <iframe 
-                    title="Dashboard_RH" 
-                    class="w-full h-full relative z-10"
-                    src="https://app.powerbi.com/view?r=eyJrIjoiZjkxYTI4MDctMjE1MC00YzA0LThiOTctYmFkMjM2YWI0YTQ3IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9&pageName=2a9bd14308e7f3acace9" 
-                    frameborder="0" 
-                    loading="lazy"
-                    allowFullScreen="true">
-                </iframe>
-            </div>
-        </div>
-
-        <!-- Projeto 2: TikTok -->
-        <div class="flex flex-col xl:flex-row gap-8 xl:gap-12 bg-surface rounded-2xl border border-border p-6 md:p-10 shadow-lg">
-            <div class="xl:w-1/3 flex flex-col justify-between">
-                <div>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Mídias Sociais</span>
-                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Python</span>
+                    <div>
+                        <span class="block text-2xl font-headline font-bold text-foreground">BI</span>
+                        <span class="text-muted uppercase tracking-[0.16em]">Dashboards interativos</span>
                     </div>
-                    <h2 class="font-headline text-3xl font-bold text-foreground mb-4">Projeto TikTok</h2>
-                    <p class="text-muted leading-relaxed mb-6">
-                        Análise de tendências e engajamento na plataforma TikTok. Extração e tratamento de dados focando em métricas preditivas de viralização e comportamento de usuários.
-                    </p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="https://github.com/isaiassousa032/projeto-tiktok" target="_blank" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary hover:border-secondary transition-all cursor-pointer w-fit px-6 py-3 bg-surface-elevated border border-border rounded-lg shadow-sm">
-                        Ver no Github<span class="material-symbols-outlined text-sm">code</span>
-                    </a>
-                </div>
-            </div>
-            <!-- Se não tiver dashboard em iframe, usamos imagem grande -->
-            <div class="xl:w-2/3 h-[400px] xl:h-auto bg-surface-elevated rounded-xl overflow-hidden border border-border">
-                <img src="../imagem_projeto_tiktok.png" alt="Projeto TikTok" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"/>
-            </div>
-        </div>
-
-        <!-- Projeto 3: Hábitos Digitais -->
-        <div class="flex flex-col xl:flex-row gap-8 xl:gap-12 bg-surface rounded-2xl border border-border p-6 md:p-10 shadow-lg">
-            <div class="xl:w-1/3 flex flex-col justify-between">
-                <div>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">Comportamento</span>
-                        <span class="text-xs uppercase font-bold tracking-tighter text-primary px-3 py-1 bg-elevated rounded border border-border">SQL</span>
+                    <div>
+                        <span class="block text-2xl font-headline font-bold text-foreground">E2E</span>
+                        <span class="text-muted uppercase tracking-[0.16em]">Da base ao insight</span>
                     </div>
-                    <h2 class="font-headline text-3xl font-bold text-foreground mb-4">Hábitos Digitais e Vício em Smartphones</h2>
-                    <p class="text-muted leading-relaxed mb-6">
-                        Estudo aprofundado sobre o impacto do tempo de tela em métricas de bem-estar. Limpeza e modelagem de dados para descobrir correlações entre uso de aplicativos e níveis de estresse.
-                    </p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="https://github.com/isaiassousa032/habitos-digitais-e-vicio-em-smarphones-dados_sinteticos" target="_blank" class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary hover:border-secondary transition-all cursor-pointer w-fit px-6 py-3 bg-surface-elevated border border-border rounded-lg shadow-sm">
-                        Ver no Github<span class="material-symbols-outlined text-sm">code</span>
-                    </a>
                 </div>
             </div>
-            <div class="xl:w-2/3 h-[400px] xl:h-auto bg-surface-elevated rounded-xl overflow-hidden border border-border">
-                <img src="../imagem_projeto_habitos.png" alt="Projeto Hábitos Digitais" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"/>
+        </section>
+
+        <section id="projetos" class="px-6 md:px-12 lg:px-24 py-20 md:py-24 bg-background">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-12">
+                    <div>
+                        <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">01 · Seleção</span>
+                        <h2 class="font-headline text-4xl md:text-5xl font-light text-foreground mt-3">Projetos em destaque</h2>
+                    </div>
+                    <p class="max-w-md text-muted leading-relaxed md:text-right">Explore cada case para conhecer o contexto, a solução técnica e os principais resultados.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-6 items-stretch">
+
+                    <!-- Projeto 1: Olist -->
+                    <article class="group flex flex-col overflow-hidden rounded-2xl bg-surface border border-border hover:border-secondary/60 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                        <a href="olist/" class="relative block h-56 overflow-hidden bg-elevated" aria-label="Abrir Projeto Olist">
+                            <img src="../assets/Projeto_Olist2.png" alt="Prévia do dashboard do Projeto Olist" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0f0d]/75 via-transparent to-transparent"></div>
+                            <span class="absolute left-5 bottom-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white">
+                                <span class="h-2 w-2 rounded-full bg-secondary"></span>
+                                01 · E-commerce
+                            </span>
+                        </a>
+
+                        <div class="flex flex-1 flex-col p-7">
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2.5 py-1 bg-elevated rounded border border-border">Power BI</span>
+                                <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2.5 py-1 bg-elevated rounded border border-border">PostgreSQL</span>
+                                <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2.5 py-1 bg-elevated rounded border border-border">DAX</span>
+                            </div>
+                            <h3 class="font-headline text-2xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">Projeto Olist</h3>
+                            <p class="text-sm text-muted leading-relaxed">Solução analítica end-to-end para acompanhar pedidos, faturamento, logística e satisfação de clientes em um marketplace.</p>
+
+                            <div class="grid grid-cols-2 gap-3 mt-6 pt-5 border-t border-border">
+                                <div>
+                                    <span class="block text-lg font-headline font-bold text-foreground">99 mil</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-muted">Pedidos</span>
+                                </div>
+                                <div>
+                                    <span class="block text-lg font-headline font-bold text-foreground">R$ 15,79 mi</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-muted">Faturamento</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-7 flex flex-wrap items-center gap-3">
+                                <a href="olist/" class="inline-flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-bold text-[#111413] hover:brightness-110 transition-all">Ver projeto <span class="material-symbols-outlined text-[18px]">arrow_outward</span></a>
+                                <a href="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg bg-elevated px-4 py-2.5 text-sm font-bold text-foreground border border-border hover:border-secondary hover:text-secondary transition-all">Dashboard <span class="material-symbols-outlined text-[18px]">bar_chart</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 2: RH -->
+                    <article class="group flex flex-col overflow-hidden rounded-2xl bg-surface border border-border hover:border-secondary/60 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                        <a href="rh/" class="relative block h-56 overflow-hidden bg-elevated" aria-label="Abrir Projeto RH">
+                            <img src="../assets/Dashboard_RH.png" alt="Prévia do dashboard de Recursos Humanos" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0f0d]/75 via-transparent to-transparent"></div>
+                            <span class="absolute left-5 bottom-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white">
+                                <span class="h-2 w-2 rounded-full bg-secondary"></span>
+                                02 · People Analytics
+                            </span>
+                        </a>
+
+                        <div class="flex flex-1 flex-col p-7">
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2.5 py-1 bg-elevated rounded border border-border">Power BI</span>
+                                <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2.5 py-1 bg-elevated rounded border border-border">Python</span>
+                                <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2.5 py-1 bg-elevated rounded border border-border">Pandas</span>
+                            </div>
+                            <h3 class="font-headline text-2xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">Projeto RH</h3>
+                            <p class="text-sm text-muted leading-relaxed">People Analytics para acompanhar headcount, folha salarial, turnover e o perfil demográfico da força de trabalho.</p>
+
+                            <div class="grid grid-cols-2 gap-3 mt-6 pt-5 border-t border-border">
+                                <div>
+                                    <span class="block text-lg font-headline font-bold text-foreground">849</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-muted">Ativos</span>
+                                </div>
+                                <div>
+                                    <span class="block text-lg font-headline font-bold text-foreground">15,10%</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-muted">Turnover</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-7 flex flex-wrap items-center gap-3">
+                                <a href="rh/" class="inline-flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-bold text-[#111413] hover:brightness-110 transition-all">Ver projeto <span class="material-symbols-outlined text-[18px]">arrow_outward</span></a>
+                                <a href="https://app.powerbi.com/view?r=eyJrIjoiZjkxYTI4MDctMjE1MC00YzA0LThiOTctYmFkMjM2YWI0YTQ3IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9&pageName=2a9bd14308e7f3acace9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg bg-elevated px-4 py-2.5 text-sm font-bold text-foreground border border-border hover:border-secondary hover:text-secondary transition-all">Dashboard <span class="material-symbols-outlined text-[18px]">bar_chart</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projeto 3: Ecommerce -->
+                    <article class="group flex flex-col overflow-hidden rounded-2xl bg-surface border border-border hover:border-secondary/60 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                        <a href="analise-de-vendas/" class="relative block h-56 overflow-hidden bg-elevated" aria-label="Abrir Análise Ecommerce">
+                            <img src="../assets/Projeto_Xperiun.png" alt="Prévia do dashboard de Análise Ecommerce" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0f0d]/75 via-transparent to-transparent"></div>
+                            <span class="absolute left-5 bottom-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white">
+                                <span class="h-2 w-2 rounded-full bg-secondary"></span>
+                                03 · Performance comercial
+                            </span>
+                        </a>
+
+                        <div class="flex flex-1 flex-col p-7">
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2.5 py-1 bg-elevated rounded border border-border">Power BI</span>
+                                <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2.5 py-1 bg-elevated rounded border border-border">Excel</span>
+                                <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2.5 py-1 bg-elevated rounded border border-border">DAX</span>
+                            </div>
+                            <h3 class="font-headline text-2xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">Análise Ecommerce</h3>
+                            <p class="text-sm text-muted leading-relaxed">Painel gerencial para conectar receita, custos e margem de contribuição em uma visão comercial objetiva.</p>
+
+                            <div class="grid grid-cols-2 gap-3 mt-6 pt-5 border-t border-border">
+                                <div>
+                                    <span class="block text-lg font-headline font-bold text-foreground">R$ 3,54 mi</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-muted">Receita</span>
+                                </div>
+                                <div>
+                                    <span class="block text-lg font-headline font-bold text-foreground">R$ 1,54 mi</span>
+                                    <span class="text-[10px] uppercase tracking-wider text-muted">Margem</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-7 flex flex-wrap items-center gap-3">
+                                <a href="analise-de-vendas/" class="inline-flex items-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-bold text-[#111413] hover:brightness-110 transition-all">Ver projeto <span class="material-symbols-outlined text-[18px]">arrow_outward</span></a>
+                                <a href="https://app.powerbi.com/view?r=eyJrIjoiMDU3YmViODktOWJlZC00NjNjLTg3ZDMtODIyY2EyN2ZkMWMwIiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg bg-elevated px-4 py-2.5 text-sm font-bold text-foreground border border-border hover:border-secondary hover:text-secondary transition-all">Dashboard <span class="material-symbols-outlined text-[18px]">bar_chart</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-    </div>
-
-    <!-- Footer Simples -->
     <footer class="w-full py-10 border-t border-border bg-surface text-center">
-        <p class="text-muted/60 font-body text-xs uppercase tracking-widest">
-            © 2026 Isaias Santos. Transformando dados em inteligência.
-        </p>
+        <p class="text-muted/60 font-body text-xs uppercase tracking-widest">© 2026 Isaias Santos. Transformando dados em inteligência.</p>
     </footer>
 
     <script>
-        // Dark/Light Theme Toggle (mesma lógica do index)
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const htmlElement = document.documentElement;
 
-        if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
             htmlElement.classList.remove('dark');
             themeIcon.textContent = 'dark_mode';
         } else {
@@ -218,15 +274,11 @@
         }
 
         themeToggleBtn.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                themeIcon.textContent = 'light_mode';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeIcon.textContent = 'dark_mode';
-            }
+            const isDark = htmlElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
         });
     </script>
 </body>
+
 </html>
