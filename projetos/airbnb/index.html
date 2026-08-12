@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Projeto de análise do mercado Airbnb em São Paulo com Python, PostgreSQL, SQL e Power BI." />
+    <title>Projeto Airbnb | Isaias Santos</title>
+
+    <link rel="icon" href="../../assets/favicon_com_fundo_removido.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@300,0,0,24" rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg-color: #f8f9f8;
+            --surface: #ffffff;
+            --surface-elevated: #eceeec;
+            --text-main: #003b36;
+            --text-muted: #404847;
+            --primary: #003b36;
+            --secondary: #b8860b;
+            --border: #bfc9c7;
+        }
+
+        .dark {
+            --bg-color: #0a0f0d;
+            --surface: #111514;
+            --surface-elevated: #1a201e;
+            --text-main: #e2e3e1;
+            --text-muted: #9b9c9c;
+            --primary: #9ed0c9;
+            --secondary: #e9c349;
+            --border: #2a3230;
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: "var(--bg-color)",
+                        surface: "var(--surface)",
+                        elevated: "var(--surface-elevated)",
+                        foreground: "var(--text-main)",
+                        muted: "var(--text-muted)",
+                        primary: "var(--primary)",
+                        secondary: "var(--secondary)",
+                        border: "var(--border)",
+                    },
+                    fontFamily: {
+                        headline: ["Manrope", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background text-foreground font-body transition-colors duration-300 selection:bg-secondary selection:text-[#111413] overflow-x-hidden">
+    <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-5 bg-background/80 backdrop-blur-md border-b border-border">
+        <a href="../../#projetos" class="flex items-center gap-2 text-xl font-extrabold text-foreground tracking-widest font-headline uppercase hover:text-secondary transition-colors">
+            <span class="material-symbols-outlined text-2xl">arrow_back</span>
+            Isaias<span class="text-secondary"> Santos</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <button id="theme-toggle" class="text-foreground hover:text-secondary transition-colors" title="Alternar modo escuro/claro" aria-label="Alternar modo escuro/claro">
+                <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
+            </button>
+            <a href="../../#projetos" class="hidden md:block text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Voltar aos projetos</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="pt-32 md:pt-36 pb-16 px-6 md:px-12 lg:px-24 bg-surface border-b border-border">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+                <div>
+                    <span class="inline-block px-4 py-1.5 bg-surface-elevated text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 rounded-full border border-border">Dados públicos · Inside Airbnb · São Paulo</span>
+                    <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-foreground leading-[1.05] mb-6">Projeto Airbnb</h1>
+                    <p class="text-lg md:text-xl text-muted leading-relaxed mb-10">Análise end-to-end de 42.354 anúncios para compreender preços, oferta, avaliações, disponibilidade e receita estimada no mercado de hospedagens de São Paulo.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiYTM1MzllZjItZDY0Mi00MmJmLWJlYmYtMDAzOTA0NjU4YWViIiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-all">Ver Dashboard <span class="material-symbols-outlined text-[18px]">bar_chart</span></a>
+                        <a href="https://github.com/isaiassousa032/Projeto_Airbnb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-surface-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-all">Ver Código no GitHub <span class="material-symbols-outlined text-[18px]">arrow_outward</span></a>
+                    </div>
+                </div>
+
+                <figure class="bg-background rounded-2xl border border-border overflow-hidden shadow-2xl">
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiYTM1MzllZjItZDY0Mi00MmJmLWJlYmYtMDAzOTA0NjU4YWViIiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden">
+                        <img src="../../assets/airbnb/visao-geral.png" alt="Prévia do dashboard do Projeto Airbnb" class="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-[1.02]" loading="eager" fetchpriority="high" />
+                        <span class="absolute right-4 bottom-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0a0f0d]/85 text-white text-xs font-bold backdrop-blur-sm">Abrir dashboard <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+                    </a>
+                    <figcaption class="px-5 py-3 text-xs text-muted border-t border-border">Visão geral do mercado Airbnb em São Paulo.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="px-6 md:px-12 lg:px-24 py-12 bg-background border-b border-border">
+            <div class="max-w-6xl mx-auto grid sm:grid-cols-3 gap-6">
+                <div><span class="text-xs uppercase tracking-[0.18em] text-muted">Escopo</span><p class="mt-2 font-headline text-xl font-bold">42.354 anúncios</p></div>
+                <div><span class="text-xs uppercase tracking-[0.18em] text-muted">Stack principal</span><p class="mt-2 font-headline text-xl font-bold">Python · PostgreSQL · Power BI</p></div>
+                <div><span class="text-xs uppercase tracking-[0.18em] text-muted">Entrega</span><p class="mt-2 font-headline text-xl font-bold">3 visões analíticas</p></div>
+            </div>
+        </section>
+
+        <section id="objetivo" class="px-6 md:px-12 lg:px-24 py-20">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+                <div>
+                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">01 · Contexto</span>
+                    <h2 class="font-headline text-4xl font-bold mt-3 mb-5">Objetivo do projeto</h2>
+                    <p class="text-muted leading-relaxed">Transformar dados públicos brutos do Inside Airbnb em uma visão analítica do mercado de hospedagens de São Paulo, investigando distribuição dos anúncios, preços, disponibilidade, avaliações, anfitriões e desempenho estimado.</p>
+                    <a href="https://insideairbnb.com/pt/get-the-data/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-6 text-secondary font-bold hover:gap-3 transition-all">Conhecer a fonte dos dados <span class="material-symbols-outlined text-[18px]">arrow_outward</span></a>
+                </div>
+                <div class="bg-surface rounded-2xl border border-border p-8">
+                    <h3 class="font-headline text-2xl font-bold mb-4">Problema de negócio</h3>
+                    <p class="text-muted leading-relaxed">Como compreender o comportamento do mercado Airbnb em São Paulo e identificar fatores associados à oferta, ao preço e ao desempenho dos anúncios?</p>
+                    <ul class="mt-5 space-y-3 text-muted">
+                        <li class="flex gap-3"><span class="text-secondary">•</span> Quais bairros concentram mais anúncios?</li>
+                        <li class="flex gap-3"><span class="text-secondary">•</span> Como acomodação e localização influenciam o preço?</li>
+                        <li class="flex gap-3"><span class="text-secondary">•</span> Onde estão os maiores valores de receita média estimada?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="px-6 md:px-12 lg:px-24 py-20 bg-surface border-y border-border">
+            <div class="max-w-6xl mx-auto">
+                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">02 · Ferramentas</span>
+                <h2 class="font-headline text-4xl font-bold mt-3 mb-8">Tecnologias utilizadas</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">Python</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">Pandas</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">Jupyter</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">PostgreSQL</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">SQL</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">Power BI</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">DAX</span>
+                    <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">Figma</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="arquitetura" class="px-6 md:px-12 lg:px-24 py-20">
+            <div class="max-w-6xl mx-auto">
+                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">03 · Solução</span>
+                <h2 class="font-headline text-4xl font-bold mt-3 mb-10">Arquitetura da solução</h2>
+                <div class="grid md:grid-cols-5 gap-4">
+                    <article class="bg-surface border border-border rounded-2xl p-6"><span class="text-secondary font-headline text-3xl font-bold">01</span><h3 class="font-headline text-lg font-bold mt-4 mb-2">Inside Airbnb</h3><p class="text-sm text-muted leading-relaxed">Dataset público de anúncios de São Paulo.</p></article>
+                    <article class="bg-surface border border-border rounded-2xl p-6"><span class="text-secondary font-headline text-3xl font-bold">02</span><h3 class="font-headline text-lg font-bold mt-4 mb-2">Python</h3><p class="text-sm text-muted leading-relaxed">Exploração, limpeza e validação da base.</p></article>
+                    <article class="bg-surface border border-border rounded-2xl p-6"><span class="text-secondary font-headline text-3xl font-bold">03</span><h3 class="font-headline text-lg font-bold mt-4 mb-2">PostgreSQL</h3><p class="text-sm text-muted leading-relaxed">Persistência e modelagem dos dados tratados.</p></article>
+                    <article class="bg-surface border border-border rounded-2xl p-6"><span class="text-secondary font-headline text-3xl font-bold">04</span><h3 class="font-headline text-lg font-bold mt-4 mb-2">SQL</h3><p class="text-sm text-muted leading-relaxed">Consultas de negócio e views analíticas.</p></article>
+                    <article class="bg-surface border border-border rounded-2xl p-6"><span class="text-secondary font-headline text-3xl font-bold">05</span><h3 class="font-headline text-lg font-bold mt-4 mb-2">Power BI</h3><p class="text-sm text-muted leading-relaxed">Medidas DAX e storytelling em três páginas.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="etl-modelagem" class="px-6 md:px-12 lg:px-24 py-20 bg-surface border-y border-border">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
+                <article class="bg-background rounded-2xl border border-border p-8">
+                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">04 · ETL</span>
+                    <h2 class="font-headline text-3xl font-bold mt-3 mb-5">Preparação dos dados</h2>
+                    <ul class="space-y-4 text-muted leading-relaxed">
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Conversão de preços, datas e campos booleanos para tipos adequados.</span></li>
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Recuperação de cerca de 2.455 valores ausentes de banheiros a partir do texto descritivo.</span></li>
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Validação de duplicidades e preservação responsável de ausências sem evidência para inferência.</span></li>
+                    </ul>
+                </article>
+                <article class="bg-background rounded-2xl border border-border p-8">
+                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">05 · Modelagem</span>
+                    <h2 class="font-headline text-3xl font-bold mt-3 mb-5">Camada analítica</h2>
+                    <ul class="space-y-4 text-muted leading-relaxed">
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Tabela detalhada <code>listings_clean</code>, com um anúncio por linha.</span></li>
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Views de resumo por bairro e tipo de acomodação para análises agregadas.</span></li>
+                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Medidas DAX para preço, disponibilidade, avaliação e receita estimada.</span></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="dashboard" class="px-6 md:px-12 lg:px-24 py-20 scroll-mt-20">
+            <div class="max-w-7xl mx-auto">
+                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">06 · Dashboard</span>
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mt-3 mb-10">
+                    <div>
+                        <h2 class="font-headline text-4xl font-bold mb-4">Três visões do mercado de hospedagens</h2>
+                        <p class="max-w-3xl text-muted leading-relaxed">O dashboard conecta indicadores gerais, preços, disponibilidade, avaliações, concentração de anfitriões e receita média estimada.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiYTM1MzllZjItZDY0Mi00MmJmLWJlYmYtMDAzOTA0NjU4YWViIiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-secondary font-bold whitespace-nowrap hover:gap-3 transition-all">Explorar no Power BI <span class="material-symbols-outlined text-[18px]">arrow_outward</span></a>
+                        <a href="https://github.com/isaiassousa032/Projeto_Airbnb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-secondary font-bold whitespace-nowrap hover:gap-3 transition-all">Ver documentação <span class="material-symbols-outlined text-[18px]">code</span></a>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <figure class="bg-surface rounded-2xl border border-border overflow-hidden shadow-lg">
+                        <img src="../../assets/airbnb/visao-geral.png" alt="Dashboard Airbnb — visão geral" class="w-full aspect-video object-cover" loading="lazy" />
+                        <figcaption class="p-5 border-t border-border"><strong class="font-headline text-lg">01 · Visão Geral</strong><p class="text-sm text-muted mt-1">Panorama dos anúncios, preço, avaliação, disponibilidade e receita média estimada.</p></figcaption>
+                    </figure>
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <figure class="bg-surface rounded-2xl border border-border overflow-hidden shadow-lg">
+                            <img src="../../assets/airbnb/precos-oferta.png" alt="Dashboard Airbnb — preços e oferta por bairro" class="w-full aspect-video object-cover" loading="lazy" />
+                            <figcaption class="p-5 border-t border-border"><strong class="font-headline text-lg">02 · Preços e Oferta</strong><p class="text-sm text-muted mt-1">Comparação de preços, disponibilidade e concentração entre bairros.</p></figcaption>
+                        </figure>
+                        <figure class="bg-surface rounded-2xl border border-border overflow-hidden shadow-lg">
+                            <img src="../../assets/airbnb/avaliacoes-anfitrioes-receita.png" alt="Dashboard Airbnb — avaliações, anfitriões e receita" class="w-full aspect-video object-cover" loading="lazy" />
+                            <figcaption class="p-5 border-t border-border"><strong class="font-headline text-lg">03 · Avaliações, Anfitriões e Receita</strong><p class="text-sm text-muted mt-1">Experiência dos hóspedes, concentração de anúncios e desempenho estimado.</p></figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="insights" class="px-6 md:px-12 lg:px-24 py-20 bg-surface border-y border-border">
+            <div class="max-w-6xl mx-auto">
+                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">07 · Análise</span>
+                <h2 class="font-headline text-4xl font-bold mt-3 mb-8">Principais insights</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="bg-background rounded-2xl border border-border p-7"><span class="material-symbols-outlined text-secondary text-3xl">location_city</span><h3 class="font-headline text-xl font-bold mt-5 mb-3">Concentração não define preço</h3><p class="text-muted leading-relaxed">Os bairros com mais anúncios não são necessariamente os que apresentam os maiores preços médios.</p></article>
+                    <article class="bg-background rounded-2xl border border-border p-7"><span class="material-symbols-outlined text-secondary text-3xl">apartment</span><h3 class="font-headline text-xl font-bold mt-5 mb-3">Acomodação importa</h3><p class="text-muted leading-relaxed">Imóveis inteiros combinam grande volume e preço médio elevado; quartos de hotel lideram em preço, mas têm baixa oferta.</p></article>
+                    <article class="bg-background rounded-2xl border border-border p-7"><span class="material-symbols-outlined text-secondary text-3xl">monitoring</span><h3 class="font-headline text-xl font-bold mt-5 mb-3">Morumbi se destaca</h3><p class="text-muted leading-relaxed">Entre bairros com volume relevante, o Morumbi apresentou os maiores valores de preço e receita média estimada.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultados" class="px-6 md:px-12 lg:px-24 py-20">
+            <div class="max-w-5xl mx-auto">
+                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">08 · Resultados</span>
+                <h2 class="font-headline text-4xl font-bold mt-3 mb-5">Dos dados públicos ao dashboard</h2>
+                <p class="text-muted leading-relaxed text-lg">O projeto entrega um pipeline reproduzível com notebooks, estrutura PostgreSQL, consultas SQL, views analíticas, medidas DAX e um dashboard de três páginas. A base analisada possui 42.354 anúncios, preço médio de R$ 418,05, avaliação média de 4,77 e disponibilidade média anual de 261 dias.</p>
+
+                <div class="mt-8 grid md:grid-cols-2 gap-6">
+                    <div class="p-6 md:p-8 bg-surface rounded-2xl border border-border">
+                        <h3 class="font-headline text-xl font-bold mb-3">Interpretação responsável</h3>
+                        <p class="text-muted leading-relaxed">Disponibilidade não equivale à ocupação real, e a receita apresentada é uma estimativa analítica — não faturamento oficial dos anfitriões.</p>
+                    </div>
+                    <div class="p-6 md:p-8 bg-surface rounded-2xl border border-border">
+                        <h3 class="font-headline text-xl font-bold mb-3">Explore o projeto</h3>
+                        <p class="text-muted leading-relaxed mb-5">Consulte os notebooks, scripts SQL, dicionário de dados e decisões de limpeza no repositório.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://app.powerbi.com/view?r=eyJrIjoiYTM1MzllZjItZDY0Mi00MmJmLWJlYmYtMDAzOTA0NjU4YWViIiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-all">Ver Dashboard <span class="material-symbols-outlined text-[18px]">bar_chart</span></a>
+                            <a href="https://github.com/isaiassousa032/Projeto_Airbnb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 bg-surface-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-all">Ver Código <span class="material-symbols-outlined text-[18px]">code</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full py-10 border-t border-border bg-surface text-center">
+        <p class="text-muted/60 font-body text-xs uppercase tracking-widest">© 2026 Isaias Santos. Transformando dados em inteligência.</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+        const savedTheme = localStorage.getItem('theme');
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+        if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+            htmlElement.classList.remove('dark');
+            themeIcon.textContent = 'dark_mode';
+        } else {
+            htmlElement.classList.add('dark');
+            themeIcon.textContent = 'light_mode';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = htmlElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+        });
+    </script>
+</body>
+
+</html>
