@@ -11,6 +11,7 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/home.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +60,66 @@
             scrollbar-width: none;
         }
 
+
+        /* Cards auto-height, including the original RH and sales cards. */
+        .projects-grid > div {
+            min-width: 0;
+            height: auto;
+        }
+        .projects-grid > div > div:first-child {
+            flex-shrink: 0;
+        }
+        @media (min-width: 768px) {
+            /* Share content rows so paired cards and approach sections align. */
+            .projects-grid > article {
+                display: grid;
+                grid-row: span 5;
+                grid-template-rows: subgrid;
+                row-gap: 0;
+            }
+            .projects-grid > article > div:last-child {
+                display: grid;
+                grid-row: span 4;
+                grid-template-rows: subgrid;
+                row-gap: 0;
+            }
+        }
+        #projetos a:focus-visible,
+        #projetos button:focus-visible,
+        #projetos summary:focus-visible {
+            outline: 2px solid var(--secondary);
+            outline-offset: 4px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #projetos *, #projetos *::before, #projetos *::after {
+                transition: none;
+            }
+        }
+
+
+        .project-approach-toggle {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            min-height: 44px;
+            list-style: none;
+            cursor: pointer;
+            border-radius: .25rem;
+        }
+        .project-approach-toggle::-webkit-details-marker { display: none; }
+        .project-approach-labels {
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: .5rem;
+            min-width: 0;
+        }
+        .project-toggle-icon { flex-shrink: 0; transition: transform .2s ease; }
+        .project-approach[open] > summary .project-toggle-icon { transform: rotate(180deg); }
+        .project-approach-toggle:hover .project-toggle-icon { color: var(--secondary); }
+
         html {
             scroll-behavior: smooth;
         }
@@ -100,7 +161,7 @@
 </head>
 
 <body
-    class="bg-background text-foreground font-body transition-colors duration-300 selection:bg-secondary selection:text-[#111413] overflow-x-hidden">
+    class="home-page bg-background text-foreground font-body transition-colors duration-300 selection:bg-secondary selection:text-[#111413] overflow-x-hidden">
 
     <!-- Navbar -->
     <header
@@ -134,7 +195,7 @@
                     class="text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Contato</a>
 
                 <!-- Ícone de Download do Currículo (Desktop) -->
-                <a href="curriculo_isaias_santos.pdf" download target="_blank"
+                <a href="curriculo_isaias_santos.pdf" download target="_blank" rel="noopener noreferrer"
                     class="text-muted hover:text-secondary transition-colors flex items-center"
                     title="Baixar Currículo">
                     <span class="material-symbols-outlined text-[22px]">download</span>
@@ -171,7 +232,7 @@
                 class="mobile-link font-headline text-3xl tracking-tight text-foreground hover:text-secondary transition-colors">Contatos</a>
 
             <!-- Botão de Download do Currículo (Mobile) -->
-            <a href="curriculo_isaias_santos.pdf" download target="_blank"
+            <a href="curriculo_isaias_santos.pdf" download target="_blank" rel="noopener noreferrer"
                 class="mobile-link font-headline text-3xl tracking-tight text-secondary hover:text-primary transition-colors flex items-center gap-3 mt-4">
                 <span class="material-symbols-outlined text-4xl">download</span> Baixar Currículo
             </a>
@@ -190,7 +251,7 @@
                     <a href="#projetos" class="inline-flex items-center gap-2 bg-secondary text-[#111413] px-7 py-3.5 font-bold tracking-tight rounded-lg hover:brightness-110 transition-all">
                         Ver projetos <span class="material-symbols-outlined text-[20px]">arrow_downward</span>
                     </a>
-                    <a href="curriculo_isaias_santos.pdf" download target="_blank" class="inline-flex items-center gap-2 border border-border bg-surface-elevated text-foreground px-7 py-3.5 font-bold tracking-tight rounded-lg hover:border-secondary hover:text-secondary transition-all">
+                    <a href="curriculo_isaias_santos.pdf" download target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-border bg-surface-elevated text-foreground px-7 py-3.5 font-bold tracking-tight rounded-lg hover:border-secondary hover:text-secondary transition-all">
                         Baixar currículo <span class="material-symbols-outlined text-[20px]">download</span>
                     </a>
                 </div>
@@ -200,7 +261,7 @@
             </div>
 
             <div class="lg:col-span-5 relative flex justify-center lg:justify-end items-center">
-                <div class="w-full max-w-[360px] aspect-square relative rounded-full overflow-hidden shadow-2xl border-4 border-surface bg-surface-elevated group">
+                <div class="home-portrait w-full max-w-[360px] aspect-square relative rounded-full overflow-hidden shadow-2xl border-4 border-surface bg-surface-elevated group">
                     <img src="assets/foto-de-perfil-fundo-cinza2.png" alt="Foto de perfil de Isaias Santos" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
                 </div>
             </div>
@@ -231,32 +292,32 @@
                 <div class="h-1 w-20 bg-secondary mt-4"></div>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
-                <div class="group flex flex-col items-center justify-center gap-3 min-h-28 p-4 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+            <div class="technology-list">
+                <div class="technology-item flex flex-col items-center justify-center gap-2 p-3 bg-surface-elevated border border-border rounded-lg">
                     <img src="icons/sql.png" alt="SQL" class="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                     <span class="text-sm font-bold text-foreground">SQL</span>
                 </div>
-                <div class="group flex flex-col items-center justify-center gap-3 min-h-28 p-4 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div class="technology-item flex flex-col items-center justify-center gap-2 p-3 bg-surface-elevated border border-border rounded-lg">
                     <img src="icons/postgresql.svg" alt="PostgreSQL" class="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                     <span class="text-sm font-bold text-foreground">PostgreSQL</span>
                 </div>
-                <div class="group flex flex-col items-center justify-center gap-3 min-h-28 p-4 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div class="technology-item flex flex-col items-center justify-center gap-2 p-3 bg-surface-elevated border border-border rounded-lg">
                     <img src="icons/powerbi.svg" alt="Power BI" class="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                     <span class="text-sm font-bold text-foreground">Power BI</span>
                 </div>
-                <div class="group flex flex-col items-center justify-center gap-3 min-h-28 p-4 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div class="technology-item flex flex-col items-center justify-center gap-2 p-3 bg-surface-elevated border border-border rounded-lg">
                     <img src="icons/python.svg" alt="Python" class="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                     <span class="text-sm font-bold text-foreground">Python</span>
                 </div>
-                <div class="group flex flex-col items-center justify-center gap-3 min-h-28 p-4 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div class="technology-item flex flex-col items-center justify-center gap-2 p-3 bg-surface-elevated border border-border rounded-lg">
                     <img src="icons/pandas.svg" alt="pandas" class="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                     <span class="text-sm font-bold text-foreground">pandas</span>
                 </div>
-                <div class="group flex flex-col items-center justify-center gap-3 min-h-28 p-4 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div class="technology-item flex flex-col items-center justify-center gap-2 p-3 bg-surface-elevated border border-border rounded-lg">
                     <img src="icons/microsoft-excel-2025.svg" alt="Excel" class="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                     <span class="text-sm font-bold text-foreground">Excel</span>
                 </div>
-                <div class="group flex flex-col items-center justify-center gap-3 min-h-28 p-4 bg-surface-elevated border border-border rounded-xl hover:border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div class="technology-item flex flex-col items-center justify-center gap-2 p-3 bg-surface-elevated border border-border rounded-lg">
                     <img src="icons/git.svg" alt="Git" class="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                     <span class="text-sm font-bold text-foreground">Git</span>
                 </div>
@@ -264,91 +325,148 @@
         </div>
     </section>
 
-    <!-- Projetos (Horizontal Scroll) -->
+    <!-- Projetos -->
     <section id="projetos" class="py-24 bg-background">
-        <div class="px-6 md:px-12 lg:px-24 mb-16">
+        <div class="max-w-5xl mx-auto px-6 md:px-8 mb-12">
             <h2 class="font-headline text-5xl font-light text-foreground">Projetos</h2>
             <div class="h-1 w-20 bg-secondary mt-4"></div>
         </div>
 
         <!-- Projetos Container -->
-        <div class="flex gap-6 overflow-x-auto pb-8 px-6 md:px-12 lg:px-24 hide-scrollbar snap-x snap-mandatory">
+        <div class="projects-grid grid md:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto px-6 md:px-8">
 
             <!-- Projeto 1 (Projeto Olist) -->
-            <div
-                class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
-                <div class="h-48 overflow-hidden relative">
+            <article class="min-w-0 bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col">
+                <div class="h-48 shrink-0 overflow-hidden relative">
                     <img src="assets/Projeto_Olist2.png" alt="Imagem do Projeto Olist"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?fit=crop&w=800&q=80';" />
                 </div>
-                <div class="p-8 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">Power BI</span>
-                            <span
-                                class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">Postgresql</span>
-                                
-                        </div>
-                        <h3
+                <div class="p-6 flex-1">
+                    <h3
                             class="font-headline text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors line-clamp-2">
                             <a href="projetos/olist/" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-sm">
                                 Projeto Olist
                             </a>
                         </h3>
-                        <p class="text-sm text-muted leading-relaxed">
+                    <p class="text-sm text-muted leading-relaxed">
                             Dashboard de e-commerce com 99 mil pedidos, R$ 15,79 mi em faturamento e análises de logística e satisfação.
                         </p>
-                    </div>
-                    <div class="mt-4 flex flex-col items-start gap-3">
+                    <details class="project-approach mt-6 pt-5 border-t border-border" open>
+                        <summary class="project-approach-toggle">
+                            <span class="project-approach-labels">
+                                <span id="olist-analysis-title" class="font-headline font-bold text-foreground">Análise de Dados</span>
+                                <span class="text-xs font-semibold text-primary px-2 py-1 rounded bg-elevated border border-border">Concluído</span>
+                            </span>
+                            <span aria-hidden="true" class="project-toggle-icon material-symbols-outlined text-muted">expand_more</span>
+                        </summary>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span
+                                class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">Power BI</span>
+                            <span
+                                class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">Postgresql</span>
+
+                        </div>
+                        <div class="mt-4 flex flex-wrap items-center gap-3">
                         <button type="button" class="open-dashboard-btn inline-flex items-center gap-2 text-sm bg-secondary text-[#111413] font-bold px-4 py-2 rounded-lg hover:brightness-110 transition-all cursor-pointer"
                             data-title="Dashboard Olist"
                             data-src="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9">
                             Ver Dashboard <span class="material-symbols-outlined text-sm">bar_chart</span>
                         </button>
-                        <a href="https://github.com/isaiassousa032/Projeto_Olist"
+                        <a href="https://github.com/isaiassousa032/Projeto_Olist/tree/V1.0.0" aria-label="Ver no GitHub — Olist, Análise de Dados concluída"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="inline-flex items-center gap-2 text-sm text-foreground font-bold px-4 py-2 rounded-lg bg-elevated border border-border hover:border-secondary hover:text-secondary transition-all cursor-pointer">
                             Ver no GitHub <span class="material-symbols-outlined text-sm">arrow_outward</span>
                         </a>
                     </div>
+
+                    </details>
+                    <details class="project-approach mt-6 pt-5 border-t border-border">
+                        <summary class="project-approach-toggle">
+                            <span class="project-approach-labels">
+                                <span id="olist-engineering-title" class="font-headline font-bold text-foreground">Analytics Engineering</span>
+                                <span class="text-xs font-semibold text-secondary px-2 py-1 rounded bg-elevated border border-border">Em desenvolvimento</span>
+                            </span>
+                            <span aria-hidden="true" class="project-toggle-icon material-symbols-outlined text-muted">expand_more</span>
+                        </summary>
+                        <p class="mt-3 text-sm text-muted leading-relaxed">Evolução do projeto com transformações SQL em dbt, orquestração com Airflow e organização dos dados em camadas.</p>
+                        <p class="mt-4 text-xs font-semibold text-muted">Tecnologias planejadas</p>
+                        <ul class="flex flex-wrap gap-2 mt-2" aria-label="Tecnologias planejadas">
+                            <li class="text-[10px] font-bold text-muted px-2 py-1 bg-elevated rounded border border-border">dbt</li>
+                            <li class="text-[10px] font-bold text-muted px-2 py-1 bg-elevated rounded border border-border">Airflow</li>
+                            <li class="text-[10px] font-bold text-muted px-2 py-1 bg-elevated rounded border border-border">Snowflake</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap items-center gap-3">
+                            <a href="https://github.com/isaiassousa032/Projeto_Olist/tree/v2-analytics-engineering" target="_blank" rel="noopener noreferrer" aria-label="Código do pipeline Olist no GitHub — em desenvolvimento, abre em nova aba" class="inline-flex flex-col items-start gap-1 text-sm text-foreground font-bold px-4 py-2 rounded-lg bg-elevated border border-border hover:border-secondary hover:text-secondary transition-all">
+                                <span>Código do pipeline</span>
+                                <span class="inline-flex items-center gap-1 text-xs font-normal text-muted">no GitHub <span aria-hidden="true" class="material-symbols-outlined text-sm">arrow_outward</span></span>
+                            </a>
+                        </div>
+
+                    </details>
                 </div>
-            </div>            
+            </article>
 
             <!-- Projeto 2 (Projeto Airbnb) -->
-            <div
-                class="min-w-[75vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col h-[400px]">
-                <div class="h-48 overflow-hidden relative">
+            <article class="min-w-0 bg-surface rounded-xl overflow-hidden group border border-border hover:border-secondary/50 transition-all flex flex-col">
+                <div class="h-48 shrink-0 overflow-hidden relative">
                     <img src="assets/airbnb/visao-geral.png" alt="Imagem do dashboard do Projeto Airbnb"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <div class="p-8 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="flex flex-wrap gap-2 mb-4">
+                <div class="p-6 flex-1">
+                    <h3 class="font-headline text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors line-clamp-2">
+                            <a href="projetos/airbnb/" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-sm">Projeto Airbnb</a>
+                        </h3>
+                    <p class="text-sm text-muted leading-relaxed">Análise de 42.354 anúncios do Airbnb em São Paulo, explorando preços, oferta, avaliações e receita estimada.</p>
+                    <details class="project-approach mt-6 pt-5 border-t border-border" open>
+                        <summary class="project-approach-toggle">
+                            <span class="project-approach-labels">
+                                <span id="airbnb-analysis-title" class="font-headline font-bold text-foreground">Análise de Dados</span>
+                                <span class="text-xs font-semibold text-primary px-2 py-1 rounded bg-elevated border border-border">Concluído</span>
+                            </span>
+                            <span aria-hidden="true" class="project-toggle-icon material-symbols-outlined text-muted">expand_more</span>
+                        </summary>
+                        <div class="flex flex-wrap gap-2 mt-3">
                             <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">Power BI</span>
                             <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">PostgreSQL</span>
                             <span class="text-[10px] uppercase font-bold tracking-tighter text-primary px-2 py-1 bg-elevated rounded border border-border">Python</span>
                         </div>
-                        <h3 class="font-headline text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors line-clamp-2">
-                            <a href="projetos/airbnb/" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-sm">Projeto Airbnb</a>
-                        </h3>
-                        <p class="text-sm text-muted leading-relaxed">Análise de 42.354 anúncios do Airbnb em São Paulo, explorando preços, oferta, avaliações e receita estimada.</p>
-                    </div>
-                    <div class="mt-4 flex flex-col items-start gap-3">
+                        <div class="mt-4 flex flex-wrap items-center gap-3">
                         <button type="button" class="open-dashboard-btn inline-flex items-center gap-2 text-sm bg-secondary text-[#111413] font-bold px-4 py-2 rounded-lg hover:brightness-110 transition-all cursor-pointer"
                             data-title="Dashboard Airbnb"
                             data-src="https://app.powerbi.com/view?r=eyJrIjoiYTM1MzllZjItZDY0Mi00MmJmLWJlYmYtMDAzOTA0NjU4YWViIiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9">
                             Ver Dashboard <span class="material-symbols-outlined text-sm">bar_chart</span>
                         </button>
-                        <a href="https://github.com/isaiassousa032/Projeto_Airbnb" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-sm text-foreground font-bold px-4 py-2 rounded-lg bg-elevated border border-border hover:border-secondary hover:text-secondary transition-all cursor-pointer">
-                            Ver no GitHub <span class="material-symbols-outlined text-sm">code</span>
-                        </a>
+                        <button type="button" disabled aria-describedby="airbnb-v1-pending" class="text-sm text-muted px-4 py-2 rounded-lg border border-border cursor-not-allowed">Ver no GitHub</button>
                     </div>
+                        <p id="airbnb-v1-pending" class="mt-3 text-xs text-muted leading-relaxed">Código da versão original: acesso pendente de confirmação da tag.</p>
+                    </details>
+                    <details class="project-approach mt-6 pt-5 border-t border-border">
+                        <summary class="project-approach-toggle">
+                            <span class="project-approach-labels">
+                                <span id="airbnb-engineering-title" class="font-headline font-bold text-foreground">Analytics Engineering</span>
+                                <span class="text-xs font-semibold text-secondary px-2 py-1 rounded bg-elevated border border-border">Em desenvolvimento</span>
+                            </span>
+                            <span aria-hidden="true" class="project-toggle-icon material-symbols-outlined text-muted">expand_more</span>
+                        </summary>
+                        <p class="mt-3 text-sm text-muted leading-relaxed">Evolução do projeto com transformações SQL em dbt, orquestração com Airflow e organização dos dados em camadas.</p>
+                        <p class="mt-4 text-xs font-semibold text-muted">Tecnologias planejadas</p>
+                        <ul class="flex flex-wrap gap-2 mt-2" aria-label="Tecnologias planejadas">
+                            <li class="text-[10px] font-bold text-muted px-2 py-1 bg-elevated rounded border border-border">dbt</li>
+                            <li class="text-[10px] font-bold text-muted px-2 py-1 bg-elevated rounded border border-border">Airflow</li>
+                            <li class="text-[10px] font-bold text-muted px-2 py-1 bg-elevated rounded border border-border">Snowflake</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap items-center gap-3">
+                            <button type="button" disabled aria-describedby="airbnb-v2-pending" class="inline-flex flex-col items-start gap-1 text-sm text-muted px-4 py-2 rounded-lg border border-border cursor-not-allowed">
+                                <span>Código do pipeline</span>
+                                <span class="text-xs">no GitHub</span>
+                            </button>
+                        </div>
+                        <p id="airbnb-v2-pending" class="mt-3 text-xs text-muted leading-relaxed">Código do pipeline: acesso pendente de confirmação da versão em desenvolvimento.</p>
+                    </details>
                 </div>
-            </div>
+            </article>
 
             <!-- Projeto 3 (RH) -->
             <div
@@ -450,7 +568,7 @@
                     </div>
                     <div class="mt-4 flex flex-col gap-3">
                         <a href="https://github.com/isaiassousa032/habitos-digitais-e-vicio-em-smarphones-dados_sinteticos"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             class="flex items-center gap-2 text-sm text-foreground font-bold hover:text-secondary transition-colors cursor-pointer w-fit">
                             Ver no GitHub <span class="material-symbols-outlined text-sm">arrow_outward</span>
                         </a>
@@ -467,10 +585,10 @@
         <div class="grid lg:grid-cols-2 gap-16">
             <!-- Formação -->
             <div>
-                <h2 class="font-headline text-4xl font-light text-foreground mb-8 flex items-center gap-4">
-                    <span class="material-symbols-outlined text-secondary text-4xl">school</span>
+                <h2 class="font-headline text-4xl font-light text-foreground">
                     Formação Acadêmica
                 </h2>
+                <div class="h-1 w-20 bg-secondary mt-4 mb-8"></div>
                 <div class="p-8 bg-surface-elevated rounded-xl border border-border border-l-4 border-l-secondary">
                     <h3 class="font-headline text-xl font-bold text-foreground mb-2">Bacharelado em Ciência da
                         Computação</h3>
@@ -489,13 +607,13 @@
                 <div class="h-1 w-12 bg-secondary mt-4 mb-8"></div>
                 <div class="flex flex-col gap-4">
                     <div
-                        class="p-6 bg-surface-elevated rounded-xl border border-border flex justify-between items-center">
+                        class="p-5 bg-surface-elevated rounded-xl border border-border flex flex-wrap gap-3 justify-between items-center">
                         <span class="font-bold text-foreground">Português</span>
                         <span
                             class="text-xs uppercase tracking-widest text-secondary border border-secondary/30 px-3 py-1 rounded-full">Nativo</span>
                     </div>
                     <div
-                        class="p-6 bg-surface-elevated rounded-xl border border-border flex justify-between items-center">
+                        class="p-5 bg-surface-elevated rounded-xl border border-border flex flex-wrap gap-3 justify-between items-center">
                         <span class="font-bold text-foreground">Inglês</span>
                         <span
                             class="text-xs uppercase tracking-widest text-primary border border-border px-3 py-1 rounded-full">Técnico
@@ -508,55 +626,55 @@
 
     <!-- Certificações -->
     <section id="certificacoes" class="py-24 bg-background">
-        <div class="px-6 md:px-12 lg:px-24 mb-16">
+        <div class="max-w-5xl mx-auto px-6 md:px-8 mb-10">
             <h2 class="font-headline text-5xl font-light text-foreground">Certificações</h2>
             <div class="h-1 w-20 bg-secondary mt-4"></div>
         </div>
 
-        <div class="flex overflow-x-auto gap-6 px-6 md:px-12 lg:px-24 hide-scrollbar snap-x snap-mandatory pb-8">
+        <div class="certifications-grid grid sm:grid-cols-2 gap-5 max-w-5xl mx-auto px-6 md:px-8">
             <!-- Certificação 1 -->
             <a href="https://www.datacamp.com/completed/statement-of-accomplishment/track/e58a9e2eb55f5f3af814676600fee8c92b5110d8"
-                target="_blank"
-                class="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start p-8 bg-surface rounded-xl border-t-4 border-primary border-x border-b border-border shadow-sm hover:-translate-y-2 transition-transform group">
-                <span class="material-symbols-outlined text-4xl text-secondary mb-6 block"
+                target="_blank" rel="noopener noreferrer"
+                class="min-w-0 flex flex-col p-6 bg-surface rounded-xl border border-border hover:border-secondary transition-colors group">
+                <span class="material-symbols-outlined text-2xl text-secondary mb-4 block"
                     style="font-variation-settings: 'FILL' 1;">verified</span>
                 <h3
                     class="font-headline text-lg font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
                     Data Analyst in Power BI</h3>
                 <p class="text-xs text-muted uppercase tracking-widest mb-6">Datacamp</p>
-                <span class="text-xs font-bold text-primary flex items-center gap-1">Ver Credencial <span
+                <span class="text-xs font-bold text-primary flex items-center gap-1 mt-auto">Ver Credencial <span
                         class="material-symbols-outlined text-[14px]">open_in_new</span></span>
             </a>
             <!-- Certificação 2 -->
-            <a href="https://www.credly.com/badges/0960ba07-7786-4c59-86d5-3c263af78ee6/" target="_blank"
-                class="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start p-8 bg-surface rounded-xl border-t-4 border-primary border-x border-b border-border shadow-sm hover:-translate-y-2 transition-transform group">
-                <span class="material-symbols-outlined text-4xl text-secondary mb-6 block"
+            <a href="https://www.credly.com/badges/0960ba07-7786-4c59-86d5-3c263af78ee6/" target="_blank" rel="noopener noreferrer"
+                class="min-w-0 flex flex-col p-6 bg-surface rounded-xl border border-border hover:border-secondary transition-colors group">
+                <span class="material-symbols-outlined text-2xl text-secondary mb-4 block"
                     style="font-variation-settings: 'FILL' 1;">verified</span>
                 <h3
                     class="font-headline text-lg font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
                     Google Data Analytics</h3>
                 <p class="text-xs text-muted uppercase tracking-widest mb-6">Google</p>
-                <span class="text-xs font-bold text-primary flex items-center gap-1">Ver Credencial <span
+                <span class="text-xs font-bold text-primary flex items-center gap-1 mt-auto">Ver Credencial <span
                         class="material-symbols-outlined text-[14px]">open_in_new</span></span>
             </a>
 
             <!-- Certificação 3 -->
-            <a href="https://www.credly.com/badges/d2ee7aea-b896-4879-88ab-bd7a5cc97767/" target="_blank"
-                class="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start p-8 bg-surface rounded-xl border-t-4 border-primary border-x border-b border-border shadow-sm hover:-translate-y-2 transition-transform group">
-                <span class="material-symbols-outlined text-4xl text-secondary mb-6 block"
+            <a href="https://www.credly.com/badges/d2ee7aea-b896-4879-88ab-bd7a5cc97767/" target="_blank" rel="noopener noreferrer"
+                class="min-w-0 flex flex-col p-6 bg-surface rounded-xl border border-border hover:border-secondary transition-colors group">
+                <span class="material-symbols-outlined text-2xl text-secondary mb-4 block"
                     style="font-variation-settings: 'FILL' 1;">verified</span>
                 <h3
                     class="font-headline text-lg font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
                     Google AI Professional</h3>
                 <p class="text-xs text-muted uppercase tracking-widest mb-6">Google</p>
-                <span class="text-xs font-bold text-primary flex items-center gap-1">Ver Credencial <span
+                <span class="text-xs font-bold text-primary flex items-center gap-1 mt-auto">Ver Credencial <span
                         class="material-symbols-outlined text-[14px]">open_in_new</span></span>
             </a>
 
             <!-- Certificação 4 -->
             <div
-                class="min-w-[85vw] sm:min-w-[45vw] lg:min-w-[30%] snap-start p-8 bg-surface rounded-xl border-t-4 border-muted border-x border-b border-border shadow-sm opacity-80">
-                <span class="material-symbols-outlined text-4xl text-muted mb-6 block"
+                class="min-w-0 flex flex-col p-6 bg-surface rounded-xl border border-border">
+                <span class="material-symbols-outlined text-2xl text-muted mb-4 block"
                     style="font-variation-settings: 'FILL' 0;">hourglass_empty</span>
                 <h3 class="font-headline text-lg font-bold text-foreground mb-2">Google Advanced Data Analytics</h3>
                 <p class="text-xs text-muted uppercase tracking-widest">Em Andamento</p>
@@ -566,7 +684,7 @@
 
     <!-- Cursos Complementares -->
     <section id="cursos" class="py-24 px-6 md:px-12 lg:px-24 bg-surface">
-        <div class="mb-16">
+        <div class="mb-10">
             <h2 class="font-headline text-4xl md:text-5xl font-light text-foreground">
                 Cursos Complementares
             </h2>
@@ -576,22 +694,15 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Curso 1 -->
             <div
-                class="group relative overflow-hidden bg-surface-elevated rounded-2xl p-8 border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(233,195,73,0.05)] hover:-translate-y-1">
-                <!-- Ícone Fundo -->
-                <span
-                    class="material-symbols-outlined absolute -bottom-6 -right-6 text-9xl text-muted opacity-[0.03] group-hover:opacity-10 group-hover:scale-110 transition-all duration-500 pointer-events-none">database</span>
+                class="bg-surface-elevated rounded-xl p-6 border border-border">
 
-                <!-- Status Ponto Pulsante -->
+                <!-- Status de conclusão -->
                 <div class="flex items-center gap-2 mb-6">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
-                    </span>
+                    <span aria-hidden="true" class="h-2 w-2 rounded-full bg-secondary"></span>
                     <span class="text-[10px] text-muted uppercase tracking-widest font-bold">Concluído</span>
                 </div>
 
-                <span class="text-xs text-secondary font-mono mb-2 block font-bold">Databricks Academy</span>
+                <span class="text-xs text-secondary mb-2 block font-semibold">Databricks Academy</span>
                 <h4 class="font-headline font-bold text-foreground text-xl mb-3 pr-4">Academy Accreditation – Databricks
                     Fundamentals</h4>
                 <p class="text-sm text-muted leading-relaxed">Big Data, Data Lakehouse e Cloud Computing.</p>
@@ -599,36 +710,24 @@
 
             <!-- Curso 2 -->
             <div
-                class="group relative overflow-hidden bg-surface-elevated rounded-2xl p-8 border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(233,195,73,0.05)] hover:-translate-y-1">
-                <span
-                    class="material-symbols-outlined absolute -bottom-6 -right-6 text-9xl text-muted opacity-[0.03] group-hover:opacity-10 group-hover:scale-110 transition-all duration-500 pointer-events-none">code</span>
+                class="bg-surface-elevated rounded-xl p-6 border border-border">
                 <div class="flex items-center gap-2 mb-6">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
-                    </span>
+                    <span aria-hidden="true" class="h-2 w-2 rounded-full bg-secondary"></span>
                     <span class="text-[10px] text-muted uppercase tracking-widest font-bold">Concluído</span>
                 </div>
-                <span class="text-xs text-secondary font-mono mb-2 block font-bold">Harvard University</span>
+                <span class="text-xs text-secondary mb-2 block font-semibold">Harvard University</span>
                 <h4 class="font-headline font-bold text-foreground text-xl mb-3 pr-4">CS50</h4>
                 <p class="text-sm text-muted leading-relaxed">Introduction to Computer Science and Programming.</p>
             </div>
 
             <!-- Curso 3 -->
             <div
-                class="group relative overflow-hidden bg-surface-elevated rounded-2xl p-8 border border-border hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(233,195,73,0.05)] hover:-translate-y-1">
-                <span
-                    class="material-symbols-outlined absolute -bottom-6 -right-6 text-9xl text-muted opacity-[0.03] group-hover:opacity-10 group-hover:scale-110 transition-all duration-500 pointer-events-none">psychology</span>
+                class="bg-surface-elevated rounded-xl p-6 border border-border">
                 <div class="flex items-center gap-2 mb-6">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
-                    </span>
+                    <span aria-hidden="true" class="h-2 w-2 rounded-full bg-secondary"></span>
                     <span class="text-[10px] text-muted uppercase tracking-widest font-bold">Concluído</span>
                 </div>
-                <span class="text-xs text-secondary font-mono mb-2 block font-bold">Santander Open Academy</span>
+                <span class="text-xs text-secondary mb-2 block font-semibold">Santander Open Academy</span>
                 <h4 class="font-headline font-bold text-foreground text-xl mb-3 pr-4">Fundamentos de IA</h4>
                 <p class="text-sm text-muted leading-relaxed">Inteligência Artificial, Modelos e Aplicações Práticas.
                 </p>
@@ -639,28 +738,20 @@
     <!-- Contato CTA Final -->
     <section id="contato" class="py-24 px-6 md:px-12 lg:px-24 bg-background">
         <div
-            class="w-full bg-secondary rounded-3xl p-10 lg:p-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-10 group shadow-[0_20px_50px_rgba(233,195,73,0.15)] relative overflow-hidden border border-secondary/50">
-            <!-- Decoração de Fundo no Card -->
-            <div
-                class="absolute -right-20 -top-20 w-80 h-80 bg-white/20 rounded-full blur-[80px] group-hover:bg-white/30 transition-all duration-700 pointer-events-none">
-            </div>
-            <div
-                class="absolute -left-10 -bottom-10 w-40 h-40 bg-[#111413]/10 rounded-full blur-[40px] pointer-events-none">
-            </div>
-
-            <div class="relative z-10 md:w-2/3">
+            class="contact-card w-full bg-secondary rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 border border-secondary/50">
+            <div class="min-w-0 flex-1">
                 <h2
-                    class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#111413] leading-[1.05] tracking-tight mb-6">
+                    class="font-headline text-3xl md:text-4xl font-bold text-[#111413] leading-tight tracking-tight mb-4">
                     Estou aberto a oportunidades em Dados
                 </h2>
-                <p class="text-[#111413]/80 text-lg md:text-xl font-medium max-w-2xl">
+                <p class="text-[#111413] text-base md:text-lg leading-relaxed max-w-2xl">
                     Busco minha próxima oportunidade como Analista de Dados Júnior, contribuindo com SQL, Power BI,
                     Python e análise orientada a negócio.
                 </p>
             </div>
-            <div class="relative z-10 w-full md:w-auto flex-shrink-0 mt-4 md:mt-0">
+            <div class="w-full lg:w-auto flex-shrink-0">
                 <a href="mailto:isaiassousa032@gmail.com"
-                    class="inline-flex items-center justify-center gap-3 bg-[#111413] text-secondary px-10 py-5 md:py-6 rounded-full font-bold uppercase tracking-widest text-sm md:text-base hover:scale-105 hover:shadow-2xl hover:bg-black transition-all duration-300 w-full md:w-auto">
+                    class="inline-flex items-center justify-center gap-3 bg-[#111413] text-secondary px-6 py-3.5 rounded-lg font-bold text-sm hover:bg-black transition-colors w-full sm:w-auto">
                     Enviar Email <span class="material-symbols-outlined text-[20px]">send</span>
                 </a>
             </div>
@@ -671,11 +762,11 @@
     <footer class="w-full py-16 border-t border-border bg-background">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center space-y-8">
             <div class="flex flex-wrap justify-center gap-6 md:gap-12">
-                <a href="https://www.linkedin.com/in/isaiassousadossantos/" target="_blank"
+                <a href="https://www.linkedin.com/in/isaiassousadossantos/" target="_blank" rel="noopener noreferrer"
                     class="text-muted hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest flex items-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">work</span> LinkedIn
                 </a>
-                <a href="https://github.com/isaiassousa032" target="_blank"
+                <a href="https://github.com/isaiassousa032" target="_blank" rel="noopener noreferrer"
                     class="text-muted hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest flex items-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">code</span> GitHub
                 </a>
@@ -683,11 +774,11 @@
                     class="text-muted hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest flex items-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">mail</span> Email
                 </a>
-                <a href="https://isaiassantos.works" target="_blank"
+                <a href="https://isaiassantos.works" target="_blank" rel="noopener noreferrer"
                     class="text-muted hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest flex items-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">language</span> Site
                 </a>
-                <a href="curriculo_isaias_santos.pdf" download target="_blank"
+                <a href="curriculo_isaias_santos.pdf" download target="_blank" rel="noopener noreferrer"
                     class="text-muted hover:text-secondary transition-colors font-body text-sm uppercase tracking-widest flex items-center gap-2">
                     <span class="material-symbols-outlined text-[18px]">download</span> Currículo
                 </a>

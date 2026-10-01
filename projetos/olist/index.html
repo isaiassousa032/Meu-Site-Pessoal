@@ -8,6 +8,7 @@
 
     <link rel="icon" href="../../assets/favicon_com_fundo_removido.png" type="image/png" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/project-page.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -64,7 +65,7 @@
     </script>
 </head>
 
-<body class="bg-background text-foreground font-body transition-colors duration-300 selection:bg-secondary selection:text-[#111413] overflow-x-hidden">
+<body class="project-page bg-background text-foreground font-body transition-colors duration-300 selection:bg-secondary selection:text-[#111413] overflow-x-hidden">
     <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-5 bg-background/80 backdrop-blur-md border-b border-border">
         <a href="../../#projetos" class="flex items-center gap-2 text-xl font-extrabold text-foreground tracking-widest font-headline uppercase hover:text-secondary transition-colors">
             <span class="material-symbols-outlined text-2xl">arrow_back</span>
@@ -83,19 +84,19 @@
         <section class="pt-32 md:pt-36 pb-16 px-6 md:px-12 lg:px-24 bg-surface border-b border-border">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
                 <div>
-                    <span class="inline-block px-4 py-1.5 bg-surface-elevated text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 rounded-full border border-border">Projeto de dados · Olist</span>
+                    <span class="project-hero-label inline-block px-4 py-1.5 bg-surface-elevated text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 rounded-full border border-border">Projeto de dados · Olist</span>
                     <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-foreground leading-[1.05] mb-6">Projeto Olist</h1>
                     <p class="text-lg md:text-xl text-muted leading-relaxed mb-10">Solução analítica end-to-end para monitorar 99 mil pedidos da Olist entre janeiro de 2017 e agosto de 2018, conectando PostgreSQL, Power Query, Power BI e DAX.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-all">Ver Dashboard <span class="material-symbols-outlined text-[18px]">bar_chart</span></a>
-                        <a href="https://github.com/isaiassousa032/Projeto_Olist" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-surface-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-all">Ver Código no GitHub <span class="material-symbols-outlined text-[18px]">arrow_outward</span></a>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-all">Ver Dashboard </a>
+                        <a href="https://github.com/isaiassousa032/Projeto_Olist" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-surface-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-all">Ver Código no GitHub </a>
                     </div>
                 </div>
 
                 <figure class="bg-background rounded-2xl border border-border overflow-hidden shadow-2xl">
                     <a href="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="group relative block overflow-hidden">
                         <img src="../../assets/Projeto_Olist2.png" alt="Prévia do dashboard do Projeto Olist" class="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-[1.02]" loading="eager" fetchpriority="high" />
-                        <span class="absolute right-4 bottom-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0a0f0d]/85 text-white text-xs font-bold backdrop-blur-sm">Abrir dashboard <span class="material-symbols-outlined text-[16px]">open_in_new</span></span>
+
                     </a>
                     <figcaption class="px-5 py-3 text-xs text-muted border-t border-border">Visão geral de vendas, logística e satisfação do cliente.</figcaption>
                 </figure>
@@ -122,13 +123,13 @@
         <section id="objetivo" class="px-6 md:px-12 lg:px-24 py-20">
             <div class="max-w-6xl grid lg:grid-cols-2 gap-12">
                 <div>
-                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">01 · Contexto</span>
+
                     <h2 class="font-headline text-4xl font-bold mt-3 mb-5">Objetivo do projeto</h2>
                     <p class="text-muted leading-relaxed">
                         Transformar 9 arquivos CSV do dataset público da Olist em um aplicativo analítico conectado a um banco PostgreSQL na nuvem, com foco em faturamento, logística e satisfação do cliente.
                     </p>
                 </div>
-                <div class="bg-surface rounded-2xl border border-border p-8">
+                <div class="project-panel bg-surface rounded-2xl border border-border p-8">
                     <h3 class="font-headline text-2xl font-bold mb-4">Problema de negócio</h3>
                     <p class="text-muted leading-relaxed">
                         A operação estava distribuída em 9 tabelas relacionais. O projeto criou uma camada única para acompanhar receita, eficiência de entrega e percepção do consumidor dentro do recorte de janeiro de 2017 a agosto de 2018.
@@ -144,7 +145,7 @@
 
         <section id="tecnologias" class="px-6 md:px-12 lg:px-24 py-20 bg-surface border-y border-border">
             <div class="max-w-6xl">
-                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">02 · Ferramentas</span>
+
                 <h2 class="font-headline text-4xl font-bold mt-3 mb-8">Tecnologias utilizadas</h2>
                 <div class="flex flex-wrap gap-3">
                     <span class="px-4 py-2 rounded-full bg-elevated border border-border text-primary font-bold">PostgreSQL</span>
@@ -160,28 +161,28 @@
 
         <section id="arquitetura" class="px-6 md:px-12 lg:px-24 py-20">
             <div class="max-w-6xl">
-                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">03 · Solução</span>
+
                 <h2 class="font-headline text-4xl font-bold mt-3 mb-10">Arquitetura da solução</h2>
                 <div class="flex flex-col md:flex-row gap-4 items-stretch">
-                    <div class="md:flex-1 bg-surface border border-border rounded-2xl p-6">
+                    <div class="project-panel md:flex-1 bg-surface border border-border rounded-2xl p-6">
                         <span class="text-secondary font-headline text-3xl font-bold">01</span>
                         <h3 class="font-headline text-lg font-bold mt-4 mb-2">9 CSVs do Kaggle</h3>
                         <p class="text-sm text-muted leading-relaxed">Pedidos, itens, pagamentos, produtos, vendedores, clientes e avaliações do dataset público.</p>
                     </div>
-                    <div class="hidden md:flex items-center justify-center text-secondary"><span class="material-symbols-outlined">arrow_forward</span></div>
-                    <div class="md:flex-1 bg-surface border border-border rounded-2xl p-6">
+
+                    <div class="project-panel md:flex-1 bg-surface border border-border rounded-2xl p-6">
                         <span class="text-secondary font-headline text-3xl font-bold">02</span>
                         <h3 class="font-headline text-lg font-bold mt-4 mb-2">Neon + PostgreSQL</h3>
                         <p class="text-sm text-muted leading-relaxed">Banco relacional na nuvem com schema <code>olist</code> e carga das 9 tabelas.</p>
                     </div>
-                    <div class="hidden md:flex items-center justify-center text-secondary"><span class="material-symbols-outlined">arrow_forward</span></div>
-                    <div class="md:flex-1 bg-surface border border-border rounded-2xl p-6">
+
+                    <div class="project-panel md:flex-1 bg-surface border border-border rounded-2xl p-6">
                         <span class="text-secondary font-headline text-3xl font-bold">03</span>
                         <h3 class="font-headline text-lg font-bold mt-4 mb-2">Star Schema</h3>
                         <p class="text-sm text-muted leading-relaxed">Fatos de vendas, entregas e avaliações ligados a clientes, produtos, vendedores e calendário.</p>
                     </div>
-                    <div class="hidden md:flex items-center justify-center text-secondary"><span class="material-symbols-outlined">arrow_forward</span></div>
-                    <div class="md:flex-1 bg-surface border border-border rounded-2xl p-6">
+
+                    <div class="project-panel md:flex-1 bg-surface border border-border rounded-2xl p-6">
                         <span class="text-secondary font-headline text-3xl font-bold">04</span>
                         <h3 class="font-headline text-lg font-bold mt-4 mb-2">Power BI + DAX</h3>
                         <p class="text-sm text-muted leading-relaxed">Três visões com inteligência temporal, filtros sincronizados e layout móvel.</p>
@@ -192,22 +193,22 @@
 
         <section id="etl-modelagem" class="px-6 md:px-12 lg:px-24 py-20 bg-surface border-y border-border">
             <div class="max-w-6xl grid lg:grid-cols-2 gap-8">
-                <article class="bg-background rounded-2xl border border-border p-8">
-                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">04 · ETL</span>
+                <article class="project-panel bg-background rounded-2xl border border-border p-8">
+
                     <h2 class="font-headline text-3xl font-bold mt-3 mb-5">Preparação dos dados</h2>
                     <ul class="space-y-4 text-muted leading-relaxed">
-                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Importação dos 9 CSVs do Kaggle para o PostgreSQL hospedado no Neon.</span></li>
-                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Higienização e tipagem de datas e moedas no Power Query.</span></li>
-                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Criação da tabela <code>dCalendario</code> e das colunas de apoio de geolocalização.</span></li>
+                        <li class="flex gap-3"><span>Importação dos 9 CSVs do Kaggle para o PostgreSQL hospedado no Neon.</span></li>
+                        <li class="flex gap-3"><span>Higienização e tipagem de datas e moedas no Power Query.</span></li>
+                        <li class="flex gap-3"><span>Criação da tabela <code>dCalendario</code> e das colunas de apoio de geolocalização.</span></li>
                     </ul>
                 </article>
-                <article class="bg-background rounded-2xl border border-border p-8">
-                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">05 · Modelagem</span>
+                <article class="project-panel bg-background rounded-2xl border border-border p-8">
+
                     <h2 class="font-headline text-3xl font-bold mt-3 mb-5">Modelo para análise</h2>
                     <ul class="space-y-4 text-muted leading-relaxed">
-                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Star Schema com fatos de Vendas, Entregas e Avaliações.</span></li>
-                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Dimensões de Clientes, Produtos, Vendedores e Calendário conectadas ao modelo.</span></li>
-                        <li class="flex gap-3"><span class="material-symbols-outlined text-secondary">check</span><span>Medidas DAX para YoY, MoM, acumulados, médias e indicadores operacionais.</span></li>
+                        <li class="flex gap-3"><span>Star Schema com fatos de Vendas, Entregas e Avaliações.</span></li>
+                        <li class="flex gap-3"><span>Dimensões de Clientes, Produtos, Vendedores e Calendário conectadas ao modelo.</span></li>
+                        <li class="flex gap-3"><span>Medidas DAX para YoY, MoM, acumulados, médias e indicadores operacionais.</span></li>
                     </ul>
                 </article>
             </div>
@@ -216,20 +217,20 @@
         <section id="dashboard" class="px-6 md:px-12 lg:px-24 py-20">
             <div class="max-w-6xl grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">06 · Dashboard</span>
+
                     <h2 class="font-headline text-4xl font-bold mt-3 mb-5">Três visões para operar o e-commerce</h2>
                     <p class="text-muted leading-relaxed mb-6">
                         A aplicação combina Visão Geral, Eficiência Logística e Satisfação do Cliente. Os filtros por período, categoria e região permitem sair do resultado consolidado e investigar a operação.
                     </p>
                     <div class="grid grid-cols-2 gap-3 mb-6">
-                        <div class="bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Faturamento</span><strong class="block mt-1 font-headline text-xl">R$ 15,79 mi</strong></div>
-                        <div class="bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Pedidos</span><strong class="block mt-1 font-headline text-xl">99 mil</strong></div>
-                        <div class="bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Entrega média</span><strong class="block mt-1 font-headline text-xl">12,50 dias</strong></div>
-                        <div class="bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Nota média</span><strong class="block mt-1 font-headline text-xl">4,09 / 5</strong></div>
+                        <div class="project-panel bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Faturamento</span><strong class="block mt-1 font-headline text-xl">R$ 15,79 mi</strong></div>
+                        <div class="project-panel bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Pedidos</span><strong class="block mt-1 font-headline text-xl">99 mil</strong></div>
+                        <div class="project-panel bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Entrega média</span><strong class="block mt-1 font-headline text-xl">12,50 dias</strong></div>
+                        <div class="project-panel bg-surface rounded-xl border border-border p-4"><span class="text-xs text-muted uppercase tracking-wider">Nota média</span><strong class="block mt-1 font-headline text-xl">4,09 / 5</strong></div>
                     </div>
                     <a href="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-secondary font-bold hover:gap-3 transition-all">
                         Explorar no Power BI
-                        <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+
                     </a>
                 </div>
                 <div class="bg-surface rounded-2xl border border-border overflow-hidden shadow-lg">
@@ -240,21 +241,21 @@
 
         <section id="insights" class="px-6 md:px-12 lg:px-24 py-20 bg-surface border-y border-border">
             <div class="max-w-6xl">
-                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">07 · Análise</span>
+
                 <h2 class="font-headline text-4xl font-bold mt-3 mb-8">Indicadores que orientam a operação</h2>
                 <div class="grid md:grid-cols-3 gap-6">
-                    <article class="bg-background rounded-2xl border border-border p-7">
-                        <span class="material-symbols-outlined text-secondary text-3xl">trending_up</span>
+                    <article class="project-panel bg-background rounded-2xl border border-border p-7">
+
                         <h3 class="font-headline text-xl font-bold mt-5 mb-3">Resultado comercial</h3>
                         <p class="text-muted leading-relaxed">R$ 15,79 milhões de faturamento, 99 mil pedidos, ticket médio de R$ 136,66 e crescimento YoY de 328,16%.</p>
                     </article>
-                    <article class="bg-background rounded-2xl border border-border p-7">
-                        <span class="material-symbols-outlined text-secondary text-3xl">local_shipping</span>
+                    <article class="project-panel bg-background rounded-2xl border border-border p-7">
+
                         <h3 class="font-headline text-xl font-bold mt-5 mb-3">Eficiência logística</h3>
                         <p class="text-muted leading-relaxed">Tempo médio de entrega de 12,48 dias e taxa de atraso operacional de 6,59%, acompanhados por período e região.</p>
                     </article>
-                    <article class="bg-background rounded-2xl border border-border p-7">
-                        <span class="material-symbols-outlined text-secondary text-3xl">sentiment_satisfied</span>
+                    <article class="project-panel bg-background rounded-2xl border border-border p-7">
+
                         <h3 class="font-headline text-xl font-bold mt-5 mb-3">Satisfação do cliente</h3>
                         <p class="text-muted leading-relaxed">Nota média de 4,09/5, com distribuição das avaliações e detalhamento por categoria de produto.</p>
                     </article>
@@ -264,20 +265,20 @@
 
         <section id="resultados" class="px-6 md:px-12 lg:px-24 py-20">
             <div class="max-w-4xl">
-                <span class="text-secondary text-sm font-bold uppercase tracking-[0.2em]">08 · Resultados</span>
+
                 <h2 class="font-headline text-4xl font-bold mt-3 mb-5">Uma base para decisões de e-commerce</h2>
                 <p class="text-muted leading-relaxed text-lg">
                     O projeto documenta o caminho dos 9 CSVs até o Power BI e entrega uma leitura executiva da operação: crescimento de vendas, eficiência de entrega e satisfação do cliente no mesmo modelo analítico.
                 </p>
-                <div class="mt-8 p-6 md:p-8 bg-surface rounded-2xl border border-border">
+                <div class="project-panel mt-8 p-6 md:p-8 bg-surface rounded-2xl border border-border">
                     <p class="font-headline text-xl font-bold">Explore o pipeline completo</p>
                     <p class="text-muted mt-2 mb-6">Veja as três visões do dashboard e consulte o repositório para acompanhar os 9 CSVs, o modelo dimensional, os scripts SQL e as medidas DAX.</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="https://app.powerbi.com/view?r=eyJrIjoiZWM5YzNlNDQtZjMyZi00NDNmLThlODYtOTlmMjQ0MmJlZmY0IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-all">
-                            Ver Dashboard <span class="material-symbols-outlined text-[18px]">bar_chart</span>
+                            Ver Dashboard
                         </a>
                         <a href="https://github.com/isaiassousa032/Projeto_Olist" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 bg-surface-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-all">
-                            Ver Código no GitHub <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+                            Ver Código no GitHub
                         </a>
                     </div>
                 </div>

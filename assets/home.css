@@ -1,0 +1,75 @@
+/* Shared spacing and alignment for the home page. Hero stays wider. */
+.home-page > section:not(#inicio) {
+    padding-block: 4.5rem;
+}
+.home-page > section:not(#inicio):not(#projetos):not(#certificacoes) {
+    padding-inline: max(1.5rem, calc((100vw - 960px) / 2));
+}
+.home-page > section:not(#inicio):not(#contato) h2 {
+    font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+    line-height: 1.2;
+}
+.home-page #sobre > div { gap: 2rem; }
+.home-page #sobre p + p { margin-top: 1.25rem; }
+.home-page .technology-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+}
+.home-page .technology-item {
+    flex: 0 0 calc((100% - .75rem) / 2);
+    min-width: 0;
+    min-height: 84px;
+}
+.home-page .technology-item img { width: 32px; height: 32px; }
+.home-page .technology-item > span { font-size: .8125rem; }
+.home-page .certifications-grid > * { min-width: 0; }
+.home-page .certifications-grid h3 { overflow-wrap: anywhere; }
+.home-page #cursos h4 { font-size: 1.125rem; padding-right: 0; }
+/* Match the gold border hover used by certification cards. */
+.home-page :is(.technology-item, #formacao > .grid > div:first-child > .border, #idiomas .flex-col > div, #cursos > .grid > div):hover {
+    border-color: var(--secondary);
+}
+@media (prefers-reduced-motion: no-preference) {
+    .home-page :is(.technology-item, #formacao > .grid > div:first-child > .border, #idiomas .flex-col > div, #cursos > .grid > div) {
+        transition: border-color 150ms cubic-bezier(.4, 0, .2, 1);
+    }
+}
+.home-page a:focus-visible,
+.home-page button:focus-visible,
+.home-page summary:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 4px;
+}
+.home-page #contato a:focus-visible {
+    outline-color: #111413;
+}
+@media (min-width: 640px) {
+    .home-page .technology-item { flex-basis: calc((100% - 2.25rem) / 4); }
+}
+@media (min-width: 768px) {
+    .home-page > section:not(#inicio):not(#projetos):not(#certificacoes) {
+        padding-inline: max(2rem, calc((100vw - 960px) / 2));
+    }
+}
+@media (min-width: 1024px) {
+    .home-page .technology-item { flex-basis: calc((100% - 4.5rem) / 7); min-height: 96px; }
+}
+@media (max-width: 767px) {
+    .home-page > section:not(#inicio) { padding-block: 3rem; }
+    .home-page #inicio { padding-top: 7rem; padding-bottom: 3rem; }
+    .home-page #inicio > .grid { gap: 2rem; }
+    .home-page .home-portrait { max-width: 220px; }
+    .home-page #inicio h1 { font-size: clamp(2.25rem, 10vw, 3rem); }
+    .home-page #inicio p:first-of-type { font-size: 1rem; margin-bottom: 1.5rem; }
+    .home-page #inicio p:last-of-type { margin-top: 1.5rem; }
+    .home-page #sobre p { font-size: 1rem; }
+    .home-page #formacao > .grid { gap: 2.5rem; }
+    .home-page #formacao .p-8 { padding: 1.5rem; }
+    .home-page #idiomas .tracking-widest { letter-spacing: .05em; }
+    .home-page #projetos > div:first-child { margin-bottom: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-page, .home-page * { scroll-behavior: auto; transition: none; animation: none; }
+}
