@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olist V2 — Analytics Engineering | Isaias Santos</title>
+    <meta name="description" content="Projeto Olist V2: Analytics Engineering com Snowflake, dbt, SQL e Power BI. Arquitetura em camadas, testes de qualidade e modelo semântico versionado." />
+
+    <link rel="icon" href="../../assets/favicon_com_fundo_removido.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/project-page.css" />
+    <link rel="stylesheet" href="../../assets/olist-v2/previews.css" />
+    <script src="../../assets/olist-v2/previews.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL,GRAD,opsz,wght@0,0,24,300" rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg-color: #f8f9f8;
+            --surface: #ffffff;
+            --surface-elevated: #eceeec;
+            --text-main: #003b36;
+            --text-muted: #404847;
+            --primary: #003b36;
+            --secondary: #b8860b;
+            --border: #bfc9c7;
+        }
+
+        .dark {
+            --bg-color: #0a0f0d;
+            --surface: #111514;
+            --surface-elevated: #1a201e;
+            --text-main: #e2e3e1;
+            --text-muted: #9b9c9c;
+            --primary: #9ed0c9;
+            --secondary: #e9c349;
+            --border: #2a3230;
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: "var(--bg-color)",
+                        surface: "var(--surface)",
+                        elevated: "var(--surface-elevated)",
+                        foreground: "var(--text-main)",
+                        muted: "var(--text-muted)",
+                        primary: "var(--primary)",
+                        secondary: "var(--secondary)",
+                        border: "var(--border)",
+                    },
+                    fontFamily: {
+                        headline: ["Manrope", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="project-page bg-background text-foreground font-body transition-colors duration-300 selection:bg-secondary selection:text-[#111413] overflow-x-hidden">
+    <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-5 bg-background/80 backdrop-blur-md border-b border-border">
+        <a href="../../#projetos" class="flex items-center gap-2 text-xl font-extrabold text-foreground tracking-widest font-headline uppercase hover:text-secondary transition-colors">
+            <span class="material-symbols-outlined text-2xl">arrow_back</span>
+            Isaias<span class="text-secondary"> Santos</span>
+        </a>
+
+        <div class="flex items-center gap-6">
+            <button id="theme-toggle" class="text-foreground hover:text-secondary transition-colors" title="Alternar modo escuro/claro" aria-label="Alternar modo escuro/claro">
+                <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
+            </button>
+            <a href="../../#projetos" class="hidden md:block text-sm font-bold tracking-widest uppercase text-muted hover:text-secondary transition-colors">Voltar aos projetos</a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+                <div>
+                    <span class="project-hero-label uppercase">Analytics Engineering · Dataset público da Olist</span>
+                    <h1 class="font-headline text-foreground mb-6">Projeto Olist V2</h1>
+                    <p class="text-lg text-muted mb-8">Dos CSVs ao Power BI: uma base analítica no Snowflake, transformada, testada e documentada com dbt, com um modelo semântico versionado em Git.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNjczNTQ0NGMtMjNmZC00NTAwLWFmYTQtZjliYzYxNzhiMWY5IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-colors">Ver Dashboard</a>
+                        <a href="https://github.com/isaiassousa032/Projeto_Olist/tree/v2-analytics-engineering" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-3 bg-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-colors">Código do pipeline no GitHub</a>
+                    </div>
+                    <p class="mt-5 text-sm text-muted">Evolução da <a href="../olist/" class="text-primary underline underline-offset-4 hover:text-secondary">versão de Análise de Dados</a>, com foco na confiabilidade e na organização da camada analítica.</p>
+                    <div class="mt-5"><button type="button" data-preview-toggle aria-pressed="false" aria-controls="preview-abertura preview-executiva preview-produtos preview-logistica" class="text-sm font-semibold text-primary px-4 py-2 rounded-lg border border-border hover:border-secondary hover:text-secondary transition-colors" hidden>Mostrar animações</button></div>
+                    <noscript><p class="mt-3 text-sm text-muted">Ative o JavaScript para ver as prévias animadas ou use “Ver Dashboard” para abrir o Power BI.</p></noscript>
+                </div>
+                <figure class="overflow-hidden border border-border rounded-lg">
+                    <div id="preview-abertura" class="dashboard-preview bg-elevated">
+                        <img data-dashboard-preview data-src="../../assets/olist-v2/visao-executiva.gif" alt="Prévia animada do dashboard Olist V2 — Visão Executiva" width="1104" height="622" loading="eager" fetchpriority="high" class="w-full" hidden />
+                        <p data-preview-message class="dashboard-preview-message text-sm text-muted">Prévia animada oculta. Use “Mostrar animações” ou abra o relatório no Power BI.</p>
+                    </div>
+                    <figcaption class="text-xs text-muted border-t border-border">Prévia animada da Visão Executiva. <a href="https://app.powerbi.com/view?r=eyJrIjoiNjczNTQ0NGMtMjNmZC00NTAwLWFmYTQtZjliYzYxNzhiMWY5IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-4 hover:text-secondary">Abrir relatório no Power BI</a></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section aria-label="Resumo do projeto">
+            <div class="grid sm:grid-cols-3 gap-6">
+                <div><span class="text-xs uppercase tracking-wider text-muted">Fonte pública</span><p class="mt-2 font-headline text-xl font-bold">9 arquivos CSV</p></div>
+                <div><span class="text-xs uppercase tracking-wider text-muted">Camada analítica</span><p class="mt-2 font-headline text-xl font-bold">8 marts no Snowflake</p></div>
+                <div><span class="text-xs uppercase tracking-wider text-muted">Entrega</span><p class="mt-2 font-headline text-xl font-bold">3 páginas no Power BI</p></div>
+            </div>
+        </section>
+
+        <section id="objetivo">
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div>
+                    <h2 class="font-headline mb-5">Uma base confiável para analisar o marketplace</h2>
+                    <p class="text-muted">O projeto transforma o Brazilian E-Commerce Public Dataset by Olist em dados organizados para acompanhar pedidos, produtos, vendedores, logística e satisfação dos clientes.</p>
+                    <p class="mt-4 text-muted">O cenário utiliza dados públicos históricos para fins de portfólio; não representa uma prestação de serviço à Olist.</p>
+                    <div class="mt-5"><a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold underline underline-offset-4 hover:text-secondary">Conhecer a fonte dos dados</a></div>
+                </div>
+                <div class="project-panel">
+                    <h3 class="font-headline mb-4">O problema que orientou a solução</h3>
+                    <p class="text-muted">Itens, pagamentos e avaliações têm grãos diferentes. Uni-los diretamente por pedido pode multiplicar linhas e inflar os indicadores.</p>
+                    <p class="mt-4 text-muted">A V2 separa esses processos em fatos e dimensões e explicita as regras de qualidade. Ao combinar medidas por pedido, cada fato de detalhe deve ser agregado antes da união.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologias">
+            <div>
+                <h2 class="font-headline mb-6">Tecnologias utilizadas</h2>
+                <ul class="flex flex-wrap gap-2" aria-label="Tecnologias utilizadas">
+                    <li class="text-sm text-muted px-3 py-1.5 bg-elevated rounded border border-border">Snowflake</li>
+                    <li class="text-sm text-muted px-3 py-1.5 bg-elevated rounded border border-border">dbt</li>
+                    <li class="text-sm text-muted px-3 py-1.5 bg-elevated rounded border border-border">SQL</li>
+                    <li class="text-sm text-muted px-3 py-1.5 bg-elevated rounded border border-border">Power BI</li>
+                    <li class="text-sm text-muted px-3 py-1.5 bg-elevated rounded border border-border">DAX</li>
+                    <li class="text-sm text-muted px-3 py-1.5 bg-elevated rounded border border-border">PBIP / PBIR / TMDL</li>
+                    <li class="text-sm text-muted px-3 py-1.5 bg-elevated rounded border border-border">Git / GitHub</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="arquitetura">
+            <div>
+                <h2 class="font-headline mb-6">Arquitetura em camadas</h2>
+                <p class="text-muted mb-8">Os CSVs são carregados em um stage interno do Snowflake. O dbt organiza as transformações até os marts consumidos pelo Power BI.</p>
+                <div class="grid gap-6">
+                    <article class="project-panel"><span class="text-secondary">01</span><h3 class="font-headline mb-2">RAW</h3><p class="text-sm text-muted">9 tabelas preservam a estrutura dos arquivos de origem.</p></article>
+                    <article class="project-panel"><span class="text-secondary">02</span><h3 class="font-headline mb-2">Staging</h3><p class="text-sm text-muted">9 views dbt para limpeza, tipagem e padronização dos campos.</p></article>
+                    <article class="project-panel"><span class="text-secondary">03</span><h3 class="font-headline mb-2">Intermediate</h3><p class="text-sm text-muted">Uma view concentra transformações intermediárias de clientes.</p></article>
+                    <article class="project-panel"><span class="text-secondary">04</span><h3 class="font-headline mb-2">Marts</h3><p class="text-sm text-muted">4 dimensões e 4 fatos materializados como tabelas.</p></article>
+                    <article class="project-panel"><span class="text-secondary">05</span><h3 class="font-headline mb-2">Power BI</h3><p class="text-sm text-muted">Modelo Import e relatório versionados em PBIP, PBIR e TMDL.</p></article>
+                </div>
+                <figure class="mt-8 overflow-hidden border border-border rounded-lg">
+                    <a href="../../assets/olist-v2/arquitetura.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir diagrama da arquitetura Olist V2 em tamanho original"><img src="../../assets/olist-v2/arquitetura.png" alt="Arquitetura Olist V2: RAW, staging, intermediate e marts no Snowflake, transformados com dbt e consumidos pelo Power BI" width="5173" height="1977" class="w-full" loading="lazy" /></a>
+                    <figcaption class="text-xs text-muted border-t border-border">Diagrama da arquitetura documentada no projeto. Selecione a imagem para ampliar.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="etl-modelagem">
+            <div class="grid lg:grid-cols-2 gap-10">
+                <article class="project-panel">
+                    <h2 class="font-headline mb-5">Modelagem e qualidade dos dados</h2>
+                    <p class="text-muted mb-5">O modelo dimensional é híbrido: o cabeçalho do pedido se relaciona em 1:N com os detalhes, preservando o grão de cada fato.</p>
+                    <ul class="space-y-3 text-muted">
+                        <li><code>fct_orders</code>: uma linha por pedido.</li>
+                        <li><code>fct_order_items</code>: uma linha por item do pedido.</li>
+                        <li><code>fct_order_payments</code>: uma linha por sequência de pagamento.</li>
+                        <li><code>fct_order_reviews</code>: um registro de avaliação da origem, sem presumir unicidade de <code>review_id</code>.</li>
+                    </ul>
+                </article>
+                <article class="project-panel">
+                    <h2 class="font-headline mb-5">Testes e modelo semântico</h2>
+                    <p class="text-muted">Os testes dbt cobrem nulidade, unicidade, relacionamentos e valores aceitos. A documentação registra 56 testes aprovados na execução de 22/10/2026.</p>
+                    <p class="mt-4 text-muted">O Power BI lê os 8 marts e organiza 35 medidas DAX e 7 relacionamentos ativos. O calendário usa a data da compra; o formato PBIP permite versionar o relatório e o modelo.</p>
+                    <p class="mt-4 text-sm text-muted">Esse resultado corresponde à validação registrada, não a um monitoramento contínuo.</p>
+                    <div class="mt-5"><a href="https://github.com/isaiassousa032/Projeto_Olist/blob/v2-analytics-engineering/models/olist/marts/marts_schema.yml" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold underline underline-offset-4 hover:text-secondary">Consultar os testes dos marts</a></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="dashboard">
+            <div>
+                <h2 class="font-headline mb-6">Três visões para explorar o negócio</h2>
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                    <p class="text-sm text-muted">Prévias animadas das três páginas. As interações completas estão disponíveis no Power BI.</p>
+                    <button type="button" data-preview-toggle aria-pressed="false" aria-controls="preview-abertura preview-executiva preview-produtos preview-logistica" class="text-sm font-semibold text-primary px-4 py-2 rounded-lg border border-border hover:border-secondary hover:text-secondary transition-colors" hidden>Mostrar animações</button>
+                </div>
+                <div class="space-y-8">
+                    <figure class="overflow-hidden border border-border rounded-lg">
+                        <div id="preview-executiva" class="dashboard-preview bg-elevated">
+                        <img data-dashboard-preview data-src="../../assets/olist-v2/visao-executiva.gif" alt="Prévia animada do dashboard Olist V2 — Visão Executiva" width="1104" height="622" loading="lazy" class="w-full" hidden />
+                        <p data-preview-message class="dashboard-preview-message text-sm text-muted">Prévia animada oculta. Use “Mostrar animações” ou abra o relatório no Power BI.</p>
+                    </div>
+                        <figcaption class="border-t border-border">
+                            <h3 class="font-headline mb-2">Visão Executiva</h3>
+                            <p class="text-sm text-muted">Volume de pedidos, valor dos itens e evolução ao longo do tempo.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="overflow-hidden border border-border rounded-lg">
+                        <div id="preview-produtos" class="dashboard-preview bg-elevated">
+                        <img data-dashboard-preview data-src="../../assets/olist-v2/produtos-vendedores.gif" alt="Prévia animada do dashboard Olist V2 — Produtos e Vendedores" width="1104" height="622" loading="lazy" class="w-full" hidden />
+                        <p data-preview-message class="dashboard-preview-message text-sm text-muted">Prévia animada oculta. Use “Mostrar animações” ou abra o relatório no Power BI.</p>
+                    </div>
+                        <figcaption class="border-t border-border">
+                            <h3 class="font-headline mb-2">Produtos e Vendedores</h3>
+                            <p class="text-sm text-muted">Categorias, itens comercializados e desempenho dos vendedores.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="overflow-hidden border border-border rounded-lg">
+                        <div id="preview-logistica" class="dashboard-preview bg-elevated">
+                        <img data-dashboard-preview data-src="../../assets/olist-v2/logistica-satisfacao.gif" alt="Prévia animada do dashboard Olist V2 — Logística e Satisfação" width="1100" height="620" loading="lazy" class="w-full" hidden />
+                        <p data-preview-message class="dashboard-preview-message text-sm text-muted">Prévia animada oculta. Use “Mostrar animações” ou abra o relatório no Power BI.</p>
+                    </div>
+                        <figcaption class="border-t border-border">
+                            <h3 class="font-headline mb-2">Logística e Satisfação</h3>
+                            <p class="text-sm text-muted">Prazos de entrega, atrasos e avaliações dos clientes.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="mt-8"><a href="https://app.powerbi.com/view?r=eyJrIjoiNjczNTQ0NGMtMjNmZC00NTAwLWFmYTQtZjliYzYxNzhiMWY5IiwidCI6IjQwNTBmNTliLTViYTItNGEwOS04NDU4LWI2MjUwOWM0Yzk3ZCJ9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-colors">Explorar o dashboard</a></div>
+            </div>
+        </section>
+
+        <section id="resultados">
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div>
+                    <h2 class="font-headline mb-5">Entrega e cuidados na interpretação</h2>
+                    <p class="text-muted">A base documentada preserva 99.441 pedidos, 112.650 itens, 103.886 pagamentos e 99.224 avaliações, com fatos separados para evitar duplicações entre processos.</p>
+                    <p class="mt-4 text-muted">Valor dos itens, frete e pagamentos têm significados distintos. Esses totais não são apresentados como receita líquida sem uma regra de negócio aprovada.</p>
+                    <div class="mt-5"><a href="https://github.com/isaiassousa032/Projeto_Olist/blob/v2-analytics-engineering/docs/insights-negocio.md" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold underline underline-offset-4 hover:text-secondary">Consultar análises e evidências</a></div>
+                </div>
+                <div class="project-panel">
+                    <h3 class="font-headline mb-4">Limitações conhecidas</h3>
+                    <ul class="list-disc pl-5 space-y-3 text-muted">
+                        <li>Dataset histórico e estático, com execução sob demanda; não há Airflow nem ingestão contínua.</li>
+                        <li>2016 e 2018 são períodos incompletos. As análises documentadas descrevem o snapshot Import, sem confirmar a atualização recente do Snowflake.</li>
+                        <li>Associação entre atraso e nota não demonstra causalidade.</li>
+                        <li>Credenciais e CSVs não são distribuídos no repositório.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section aria-label="Explorar o projeto">
+            <div>
+                <h2 class="font-headline mb-5">Explore o projeto completo</h2>
+                <p class="text-muted mb-6">Consulte os modelos SQL, os testes dbt, as decisões de modelagem e os arquivos versionáveis do Power BI.</p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://github.com/isaiassousa032/Projeto_Olist/tree/v2-analytics-engineering" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-3 bg-secondary text-[#111413] font-bold rounded-lg hover:brightness-110 transition-colors">Ver no GitHub</a>
+                    <a href="../../#projetos" class="inline-flex items-center justify-center px-5 py-3 bg-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-colors">Voltar aos projetos</a>
+                    <a href="../olist/" class="inline-flex items-center justify-center px-5 py-3 bg-elevated text-foreground font-bold rounded-lg border border-border hover:border-secondary hover:text-secondary transition-colors">Conhecer a Olist V1</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full py-10 border-t border-border bg-surface text-center">
+        <p class="text-muted/60 font-body text-xs uppercase tracking-widest">© 2026 Isaias Santos. Transformando dados em inteligência.</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            htmlElement.classList.remove('dark');
+            themeIcon.textContent = 'dark_mode';
+        } else {
+            htmlElement.classList.add('dark');
+            themeIcon.textContent = 'light_mode';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = 'light_mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.textContent = 'dark_mode';
+            }
+        });
+    </script>
+</body>
+
+</html>

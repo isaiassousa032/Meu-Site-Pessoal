@@ -1,0 +1,15 @@
+/* Native GIF previews are never cropped or sent to a remote host. */
+.project-page .dashboard-preview {
+    display: grid;
+    aspect-ratio: 1104 / 622;
+    overflow: hidden;
+}
+.project-page .dashboard-preview > * { grid-area: 1 / 1; }
+.project-page .dashboard-preview > [hidden],
+.project-page [data-preview-toggle][hidden] { display: none; }
+.project-page .dashboard-preview-message {
+    align-self: center;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 0;
+}

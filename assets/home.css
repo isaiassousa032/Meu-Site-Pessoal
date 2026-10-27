@@ -54,7 +54,7 @@
     }
 }
 @media (min-width: 1024px) {
-    .home-page .technology-item { flex-basis: calc((100% - 4.5rem) / 7); min-height: 96px; }
+    .home-page .technology-item { flex-basis: calc((100% - 5.25rem) / 8); min-height: 96px; }
 }
 @media (max-width: 767px) {
     .home-page > section:not(#inicio) { padding-block: 3rem; }
